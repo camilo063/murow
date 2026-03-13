@@ -51,7 +51,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-sans text-xl font-extrabold text-deep-navy tracking-tight"
+            className={`font-sans text-xl font-extrabold tracking-tight transition-colors duration-300 ${
+              scrolled ? "text-[#0A2540]" : "text-white"
+            }`}
           >
             PAYWL
           </Link>
@@ -63,7 +65,11 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium text-slate-gray hover:text-deep-navy transition-colors"
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    scrolled
+                      ? "text-[#4A5568] hover:text-[#0A2540]"
+                      : "text-white/85 hover:text-white"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -71,7 +77,11 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium text-slate-gray hover:text-deep-navy transition-colors"
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    scrolled
+                      ? "text-[#4A5568] hover:text-[#0A2540]"
+                      : "text-white/85 hover:text-white"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -83,13 +93,17 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="#demo"
-              className="rounded-btn border border-deep-navy px-4 py-1.5 text-sm font-semibold text-deep-navy hover:bg-deep-navy hover:text-white transition-colors"
+              className={`rounded-btn px-4 py-1.5 text-sm font-semibold border transition-all duration-300 ${
+                scrolled
+                  ? "border-[#0A2540] text-[#0A2540] hover:bg-[#0A2540] hover:text-white"
+                  : "border-white/60 text-white hover:border-white hover:bg-white/10"
+              }`}
             >
               Ver Demo
             </Link>
             <Link
               href="/piloto"
-              className="rounded-btn bg-vibrant-orange px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110 transition-all"
+              className="rounded-btn bg-[#FF6B35] px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110 transition-all"
             >
               Piloto Gratuito
             </Link>
@@ -98,7 +112,9 @@ export default function Navbar() {
           {/* Hamburger — mobile */}
           <button
             type="button"
-            className="md:hidden p-2 text-deep-navy"
+            className={`md:hidden p-2 transition-colors duration-300 ${
+              scrolled ? "text-[#0A2540]" : "text-white"
+            }`}
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
           >
