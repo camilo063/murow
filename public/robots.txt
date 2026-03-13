@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://murow.io/sitemap.xml
+Sitemap: https://paywl.io/sitemap.xml

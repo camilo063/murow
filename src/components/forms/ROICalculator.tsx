@@ -11,14 +11,14 @@ export default function ROICalculator() {
     const subscribers = Math.round(pageViews * (conversionRate / 100));
     const mrr = subscribers * subscriptionPrice;
     const arr = mrr * 12;
-    // Estimate MUROW cost based on page views
-    let murowCost = 450; // Business
-    if (pageViews > 500000) murowCost = 850; // Performance
-    if (pageViews > 1000000) murowCost = 1900; // Enterprise
-    const annualMurowCost = murowCost * 12;
-    const roi = arr > 0 ? Math.round(((arr - annualMurowCost) / annualMurowCost) * 100) : 0;
+    // Estimate PAYWL cost based on page views
+    let paywlCost = 450; // Business
+    if (pageViews > 500000) paywlCost = 850; // Performance
+    if (pageViews > 1000000) paywlCost = 1900; // Enterprise
+    const annualPaywlCost = paywlCost * 12;
+    const roi = arr > 0 ? Math.round(((arr - annualPaywlCost) / annualPaywlCost) * 100) : 0;
 
-    return { subscribers, mrr, arr, murowCost, roi };
+    return { subscribers, mrr, arr, paywlCost, roi };
   }, [pageViews, conversionRate, subscriptionPrice]);
 
   const formatNumber = (n: number) =>
@@ -36,7 +36,7 @@ export default function ROICalculator() {
         Calculadora de ROI
       </h3>
       <p className="mb-8 text-sm" style={{ color: "#4A5568" }}>
-        Ajusta los valores para proyectar el retorno de tu inversion con MUROW.
+        Ajusta los valores para proyectar el retorno de tu inversion con PAYWL.
       </p>
 
       <div className="space-y-8">
@@ -163,13 +163,13 @@ export default function ROICalculator() {
             {formatNumber(results.roi)}%
           </p>
           <p className="mt-1 text-xs" style={{ color: "#4A5568" }}>
-            ROI vs MUROW
+            ROI vs PAYWL
           </p>
         </div>
       </div>
 
       <p className="mt-4 text-center text-xs" style={{ color: "#4A5568" }}>
-        Costo estimado de MUROW: ${results.murowCost} USD/mes. Calculos basados en
+        Costo estimado de PAYWL: ${results.paywlCost} USD/mes. Calculos basados en
         promedios de la industria.
       </p>
     </div>

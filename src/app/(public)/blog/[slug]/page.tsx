@@ -16,17 +16,17 @@ export async function generateMetadata({
   });
 
   if (!post || !post.published) {
-    return { title: "Articulo no encontrado — MUROW" };
+    return { title: "Articulo no encontrado — PAYWL" };
   }
 
   return {
-    title: post.metaTitle || `${post.title} — MUROW Blog`,
+    title: post.metaTitle || `${post.title} — PAYWL Blog`,
     description: post.metaDesc || post.excerpt,
     keywords: post.keywords || undefined,
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDesc || post.excerpt,
-      url: `https://murow.io/blog/${post.slug}`,
+      url: `https://paywl.io/blog/${post.slug}`,
       type: "article",
       publishedTime: post.createdAt.toISOString(),
       modifiedTime: post.updatedAt.toISOString(),
@@ -51,27 +51,27 @@ function ArticleSchema({
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    url: `https://murow.io/blog/${post.slug}`,
+    url: `https://paywl.io/blog/${post.slug}`,
     datePublished: post.createdAt.toISOString(),
     dateModified: post.updatedAt.toISOString(),
     author: {
       "@type": "Organization",
       name: "Nivelics SAS",
-      url: "https://murow.io",
+      url: "https://paywl.io",
     },
     publisher: {
       "@type": "Organization",
-      name: "MUROW by Nivelics",
-      url: "https://murow.io",
+      name: "PAYWL by Nivelics",
+      url: "https://paywl.io",
       logo: {
         "@type": "ImageObject",
-        url: "https://murow.io/logo.svg",
+        url: "https://paywl.io/logo.svg",
       },
     },
     keywords: post.keywords,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://murow.io/blog/${post.slug}`,
+      "@id": `https://paywl.io/blog/${post.slug}`,
     },
   };
 
@@ -113,9 +113,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Blog", url: "https://murow.io/blog" },
-          { name: post.title, url: `https://murow.io/blog/${post.slug}` },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Blog", url: "https://paywl.io/blog" },
+          { name: post.title, url: `https://paywl.io/blog/${post.slug}` },
         ]}
       />
       <ArticleSchema post={post} />

@@ -5,8 +5,8 @@
 | Campo | Valor |
 |-------|-------|
 | URL | `http://localhost:3001/admin` |
-| Email | `admin@murow.io` |
-| Password | `Mur0w@dm1n2026!` |
+| Email | `admin@paywl.io` |
+| Password | `P@ywl@dm1n2026!` |
 
 ## Autenticacion
 
@@ -71,7 +71,7 @@ La API mapea el slug de la URL al modelo de Prisma correspondiente.
 | `dashboard-metrics` | DashboardMetric | Metricas del dashboard |
 | `integrations` | Integration | Catalogo de integraciones |
 | `case-studies` | CaseStudy | Casos de exito |
-| `differentiators` | Differentiator | Diferenciadores MUROW |
+| `differentiators` | Differentiator | Diferenciadores PAYWL |
 | `faq` | FaqItem | Preguntas frecuentes |
 | `blog-posts` | BlogPost | Articulos del blog |
 | `piloto-leads` | PilotoLead | Leads capturados (solo lectura) |

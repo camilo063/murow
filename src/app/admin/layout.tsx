@@ -11,17 +11,23 @@ function AdminLayoutInner({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const isLoginPage = pathname === "/admin/login";
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (!isLoginPage && status === "unauthenticated") {
       router.push("/admin/login");
     }
-  }, [status, router]);
+  }, [status, router, isLoginPage]);
 
   // Close sidebar on route change (mobile)
   useEffect(() => {
     setSidebarOpen(false);
   }, [pathname]);
+
+  // Login page renders without admin chrome
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
 
   if (status === "loading") {
     return (
@@ -56,11 +62,6 @@ function AdminLayoutInner({ children }: { children: ReactNode }) {
     return null;
   }
 
-  // Don't wrap the login page with admin chrome
-  if (pathname === "/admin/login") {
-    return <>{children}</>;
-  }
-
   const isActive = (href: string) => {
     if (href === "/admin") return pathname === "/admin";
     return pathname.startsWith(href);
@@ -87,7 +88,7 @@ function AdminLayoutInner({ children }: { children: ReactNode }) {
       >
         {/* Sidebar header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <span className="text-lg font-bold tracking-tight">MUROW</span>
+          <span className="text-lg font-bold tracking-tight">PAYWL</span>
           <button
             onClick={() => setSidebarOpen(false)}
             className="lg:hidden text-gray-400 hover:text-white"
@@ -134,7 +135,7 @@ function AdminLayoutInner({ children }: { children: ReactNode }) {
               </svg>
             </button>
             <h1 className="text-lg font-semibold text-[#0B1426]">
-              Admin MUROW
+              Admin PAYWL
             </h1>
           </div>
 

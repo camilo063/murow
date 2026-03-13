@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Politica de Privacidad — MUROW by Nivelics SAS",
+  title: "Politica de Privacidad — PAYWL by Nivelics SAS",
   description:
-    "Politica de privacidad y tratamiento de datos personales de MUROW, operado por Nivelics SAS. Conoce como protegemos tu informacion.",
+    "Politica de privacidad y tratamiento de datos personales de PAYWL, operado por Nivelics SAS. Conoce como protegemos tu informacion.",
   openGraph: {
-    title: "Politica de Privacidad — MUROW",
+    title: "Politica de Privacidad — PAYWL",
     description:
-      "Conoce como MUROW protege tu informacion personal.",
-    url: "https://murow.io/privacidad",
+      "Conoce como PAYWL protege tu informacion personal.",
+    url: "https://paywl.io/privacidad",
   },
 };
 
@@ -23,8 +23,8 @@ export default function PrivacidadPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Politica de Privacidad", url: "https://murow.io/privacidad" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Politica de Privacidad", url: "https://paywl.io/privacidad" },
         ]}
       />
 
@@ -48,7 +48,7 @@ export default function PrivacidadPage() {
               </h2>
               <p className={paraClass}>
                 El responsable del tratamiento de los datos personales recopilados a
-                traves de la plataforma MUROW es:
+                traves de la plataforma PAYWL es:
               </p>
               <ul className={listClass}>
                 <li>
@@ -103,7 +103,7 @@ export default function PrivacidadPage() {
               </p>
               <ul className={listClass}>
                 <li>Gestionar solicitudes de piloto gratuito y contacto comercial</li>
-                <li>Proveer, mantener y mejorar los servicios de la plataforma MUROW</li>
+                <li>Proveer, mantener y mejorar los servicios de la plataforma PAYWL</li>
                 <li>Enviar comunicaciones relacionadas con el servicio contratado</li>
                 <li>Enviar informacion comercial y de marketing (con consentimiento previo)</li>
                 <li>Cumplir obligaciones legales y regulatorias</li>
@@ -242,11 +242,11 @@ export default function PrivacidadPage() {
                 <li>
                   <strong>Sitio web:</strong>{" "}
                   <a
-                    href="https://murow.io/contacto"
+                    href="https://paywl.io/contacto"
                     className="underline"
                     style={{ color: "#00B4D8" }}
                   >
-                    murow.io/contacto
+                    paywl.io/contacto
                   </a>
                 </li>
               </ul>

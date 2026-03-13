@@ -3,7 +3,7 @@
 ## Vista General
 
 ```
-murow/
+paywl/
 ├── .env                        # Variables de entorno (NO commitear)
 ├── .nvmrc                      # Node 20
 ├── CLAUDE.md                   # Contexto para LLMs

@@ -1,12 +1,12 @@
-# MUROW — Contexto para Claude / LLMs
+# PAYWL — Contexto para Claude / LLMs
 
 ## Identidad del Proyecto
 
-MUROW (pronunciado "MU-row") es el sitio web comercial de un producto SaaS de paywall para medios digitales en America Latina. El nombre viene de "muro" (barrera de contenido) con una W al final para darle identidad de marca internacional. Es un producto de **Nivelics SAS**, empresa colombiana con presencia en USA y 14 anos de experiencia en medios digitales.
+PAYWL (pronunciado "MU-row") es el sitio web comercial de un producto SaaS de paywall para medios digitales en America Latina. El nombre viene de "muro" (barrera de contenido) con una W al final para darle identidad de marca internacional. Es un producto de **Nivelics SAS**, empresa colombiana con presencia en USA y 14 anos de experiencia en medios digitales.
 
 ## Que hace este repositorio
 
-Este repositorio contiene el **sitio web de marketing + panel de administracion** de MUROW. NO es el motor de paywall en si (ese es un backend separado). Este sitio:
+Este repositorio contiene el **sitio web de marketing + panel de administracion** de PAYWL. NO es el motor de paywall en si (ese es un backend separado). Este sitio:
 
 1. **Presenta el producto** a potenciales clientes (medios digitales en LATAM)
 2. **Captura leads** via formulario de piloto gratuito
@@ -121,5 +121,5 @@ npx prisma migrate dev        # Nueva migracion
 
 ## Credenciales Admin
 
-- Email: `admin@murow.io`
+- Email: `admin@paywl.io`
 - Password: `Mur0w@dm1n2026!`

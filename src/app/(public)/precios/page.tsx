@@ -7,14 +7,14 @@ import ROICalculator from "@/components/forms/ROICalculator";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Precios — MUROW Paywall para Medios Digitales",
+  title: "Precios — PAYWL Paywall para Medios Digitales",
   description:
     "Planes claros desde $450 USD/mes. Sin sorpresas, sin clausulas ocultas. Incluye implementacion, soporte y actualizaciones. Piloto gratuito de 90 dias.",
   openGraph: {
-    title: "Precios — MUROW Paywall para Medios Digitales",
+    title: "Precios — PAYWL Paywall para Medios Digitales",
     description:
       "Planes claros desde $450 USD/mes. Piloto gratuito de 90 dias.",
-    url: "https://murow.io/precios",
+    url: "https://paywl.io/precios",
   },
 };
 
@@ -28,8 +28,8 @@ export default async function PreciosPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Precios", url: "https://murow.io/precios" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Precios", url: "https://paywl.io/precios" },
         ]}
       />
 
@@ -82,7 +82,7 @@ export default async function PreciosPage() {
               Calcula tu retorno
             </h2>
             <p className="text-lg" style={{ color: "#4A5568" }}>
-              Ajusta los parametros para ver cuanto puede generar tu medio con MUROW.
+              Ajusta los parametros para ver cuanto puede generar tu medio con PAYWL.
             </p>
           </div>
           <ROICalculator />

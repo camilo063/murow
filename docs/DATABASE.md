@@ -122,7 +122,7 @@ Tabla comparativa de competidores.
 | spanishSupport | String | Soporte en espanol |
 | ownData | String | Propiedad de datos |
 | implementation | String | Tiempo de implementacion |
-| isHighlighted | Boolean | Si es la fila destacada (MUROW) |
+| isHighlighted | Boolean | Si es la fila destacada (PAYWL) |
 | sortOrder | Int | Orden |
 
 ### ImplementationStep
@@ -177,7 +177,7 @@ Casos de exito / social proof.
 | sortOrder | Int | Orden |
 
 ### Differentiator
-Diferenciadores de MUROW vs competencia.
+Diferenciadores de PAYWL vs competencia.
 
 | Campo | Tipo | Descripcion |
 |-------|------|-------------|
@@ -262,7 +262,7 @@ Usar `JSON.parse()` al leer y `JSON.stringify()` al escribir.
 
 ## Seed
 
-El script `prisma/seed.ts` pobla todas las tablas con el contenido del documento maestro MUROW. Se ejecuta con:
+El script `prisma/seed.ts` pobla todas las tablas con el contenido del documento maestro PAYWL. Se ejecuta con:
 
 ```bash
 npm run db:seed

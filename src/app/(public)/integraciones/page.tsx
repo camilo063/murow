@@ -4,14 +4,14 @@ import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Integraciones — MUROW Paywall",
+  title: "Integraciones — PAYWL Paywall",
   description:
-    "MUROW se conecta con tu CMS, pasarelas de pago LATAM, analytics y mas. WordPress, Strapi, Ghost, MercadoPago, Wompi, PSE y decenas mas.",
+    "PAYWL se conecta con tu CMS, pasarelas de pago LATAM, analytics y mas. WordPress, Strapi, Ghost, MercadoPago, Wompi, PSE y decenas mas.",
   openGraph: {
-    title: "Integraciones — MUROW Paywall",
+    title: "Integraciones — PAYWL Paywall",
     description:
-      "Conecta MUROW con las herramientas que tu equipo ya usa.",
-    url: "https://murow.io/integraciones",
+      "Conecta PAYWL con las herramientas que tu equipo ya usa.",
+    url: "https://paywl.io/integraciones",
   },
 };
 
@@ -64,8 +64,8 @@ export default async function IntegracionesPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Integraciones", url: "https://murow.io/integraciones" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Integraciones", url: "https://paywl.io/integraciones" },
         ]}
       />
 
@@ -85,7 +85,7 @@ export default async function IntegracionesPage() {
             <span style={{ color: "#00B4D8" }}>Y con lo que usaras manana.</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg" style={{ color: "#4A5568" }}>
-            MUROW no te obliga a cambiar tu stack. Se integra con las herramientas que
+            PAYWL no te obliga a cambiar tu stack. Se integra con las herramientas que
             tu equipo ya conoce y domina.
           </p>
         </div>

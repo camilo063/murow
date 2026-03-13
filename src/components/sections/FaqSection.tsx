@@ -50,7 +50,7 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
             Preguntas frecuentes
           </h2>
           <p className="text-lg text-[#4A5568]">
-            Todo lo que necesitas saber sobre MUROW antes de dar el siguiente paso.
+            Todo lo que necesitas saber sobre PAYWL antes de dar el siguiente paso.
           </p>
         </motion.div>
 

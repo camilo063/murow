@@ -49,7 +49,7 @@ function DashboardMockup() {
         </div>
         <div className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-1.5 text-xs text-white/50">
           <Activity className="w-3 h-3 text-[#00B4D8]" />
-          <span>MUROW Dashboard — En vivo</span>
+          <span>PAYWL Dashboard — En vivo</span>
         </div>
         <div className="text-xs text-white/30">Mar 2026</div>
       </div>
@@ -162,7 +162,7 @@ export default function AnalyticsSection({ metrics }: AnalyticsSectionProps) {
             <span className="text-[#00B4D8]">En tiempo real.</span>
           </h2>
           <p className="text-lg text-[#4A5568] leading-relaxed">
-            El dashboard de MUROW no es solo un panel de metricas. Es un sistema de inteligencia
+            El dashboard de PAYWL no es solo un panel de metricas. Es un sistema de inteligencia
             editorial que te dice que contenido genera suscripciones, que formatos convierten mejor
             y donde esta tu proxima oportunidad de crecimiento.
           </p>

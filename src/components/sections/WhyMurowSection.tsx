@@ -8,7 +8,7 @@ interface Differentiator {
   points: string;
 }
 
-interface WhyMurowSectionProps {
+interface WhyPaywlSectionProps {
   differentiators: Differentiator[];
 }
 
@@ -47,9 +47,9 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export default function WhyMurowSection({ differentiators }: WhyMurowSectionProps) {
+export default function WhyPaywlSection({ differentiators }: WhyPaywlSectionProps) {
   return (
-    <section id="por-que-murow" className="bg-[#0A2540] py-20 md:py-28">
+    <section id="por-que-paywl" className="bg-[#0A2540] py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

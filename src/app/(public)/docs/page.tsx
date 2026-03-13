@@ -4,11 +4,11 @@ import { BreadcrumbSchema } from "@/components/seo/StructuredData"
 import DocsContent from "@/components/docs/DocsContent"
 
 export const metadata: Metadata = {
-  title: "Documentacion Tecnica — MUROW Paywall Engine",
+  title: "Documentacion Tecnica — PAYWL Paywall Engine",
   description:
-    "Documentacion tecnica para integrar MUROW en tu medio digital. SDK JavaScript, API Reference, integraciones con CMS y pasarelas de pago.",
+    "Documentacion tecnica para integrar PAYWL en tu medio digital. SDK JavaScript, API Reference, integraciones con CMS y pasarelas de pago.",
   keywords: [
-    "MUROW documentacion",
+    "PAYWL documentacion",
     "paywall API",
     "SDK JavaScript paywall",
     "integracion paywall CMS",
@@ -21,8 +21,8 @@ export default function DocsPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Documentacion", url: "https://murow.io/docs" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Documentacion", url: "https://paywl.io/docs" },
         ]}
       />
 
@@ -40,7 +40,7 @@ export default function DocsPage() {
             Documentacion Tecnica
           </h1>
           <p className="text-lg md:text-xl text-white/70 max-w-3xl">
-            Todo lo que necesitas para integrar MUROW en tu medio digital.
+            Todo lo que necesitas para integrar PAYWL en tu medio digital.
             Desde la instalacion del SDK hasta la configuracion avanzada de
             reglas y pasarelas de pago.
           </p>

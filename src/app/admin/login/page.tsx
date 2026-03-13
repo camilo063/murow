@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
           {/* Branding */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-[#0B1426] tracking-tight">
-              MUROW
+              PAYWL
             </h1>
             <p className="text-gray-500 mt-1 text-sm">Admin Panel</p>
           </div>
@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                placeholder="admin@murow.com"
+                placeholder="admin@paywl.com"
               />
             </div>
 
@@ -129,7 +129,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-gray-500 text-xs mt-6">
-          MUROW Admin &mdash; Authorized personnel only
+          PAYWL Admin &mdash; Authorized personnel only
         </p>
       </div>
     </div>

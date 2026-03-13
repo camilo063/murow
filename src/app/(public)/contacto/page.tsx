@@ -3,14 +3,14 @@ import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import ContactoForm from "@/components/forms/ContactoForm";
 
 export const metadata: Metadata = {
-  title: "Contacto — MUROW by Nivelics SAS",
+  title: "Contacto — PAYWL by Nivelics SAS",
   description:
-    "Contacta al equipo de MUROW. Resolvemos tus dudas sobre paywall, integraciones, precios y programa piloto gratuito.",
+    "Contacta al equipo de PAYWL. Resolvemos tus dudas sobre paywall, integraciones, precios y programa piloto gratuito.",
   openGraph: {
-    title: "Contacto — MUROW",
+    title: "Contacto — PAYWL",
     description:
-      "Contacta al equipo de MUROW para resolver tus dudas.",
-    url: "https://murow.io/contacto",
+      "Contacta al equipo de PAYWL para resolver tus dudas.",
+    url: "https://paywl.io/contacto",
   },
 };
 
@@ -19,8 +19,8 @@ export default function ContactoPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Contacto", url: "https://murow.io/contacto" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Contacto", url: "https://paywl.io/contacto" },
         ]}
       />
 
@@ -40,7 +40,7 @@ export default function ContactoPage() {
               Hablemos
             </h1>
             <p className="text-lg" style={{ color: "#4A5568" }}>
-              Tienes preguntas sobre MUROW? Nuestro equipo esta listo para ayudarte.
+              Tienes preguntas sobre PAYWL? Nuestro equipo esta listo para ayudarte.
             </p>
           </div>
 

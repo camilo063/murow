@@ -75,7 +75,7 @@ export default function ComparisonSection({
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            &iquest;Por qu&eacute; MUROW y no Piano, Pelcro o Evolok?
+            &iquest;Por qu&eacute; PAYWL y no Piano, Pelcro o Evolok?
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
             Hicimos la investigaci&oacute;n por ti.

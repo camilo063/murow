@@ -5,13 +5,13 @@
 ### Meta tags globales
 Definidos en `src/app/layout.tsx` con el objeto `metadata` de Next.js:
 
-- `title` — Template: `%s | MUROW — Paywall Engine para Medios`
+- `title` — Template: `%s | PAYWL — Paywall Engine para Medios`
 - `description` — Descripcion general del producto
 - `keywords` — Keywords principales del negocio
 - `openGraph` — Titulo, descripcion, URL, imagen, tipo `website`
 - `twitter` — Card `summary_large_image`
 - `robots` — `index, follow` con `max-snippet: -1, max-image-preview: large`
-- `alternates.canonical` — `https://murow.io`
+- `alternates.canonical` — `https://paywl.io`
 
 ### Meta tags por pagina
 Cada pagina define su propio `export const metadata: Metadata` con titulo, descripcion y keywords especificos.
@@ -74,7 +74,7 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 Disallow: /_next/
-Sitemap: https://murow.io/sitemap.xml
+Sitemap: https://paywl.io/sitemap.xml
 ```
 
 ### sitemap.xml

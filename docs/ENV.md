@@ -9,7 +9,7 @@ Ubicacion: raiz del proyecto (`/.env`). **NO commitear** — esta en `.gitignore
 | Variable | Requerida | Descripcion | Ejemplo |
 |----------|-----------|-------------|---------|
 | `DATABASE_URL` | Si | Ruta al archivo SQLite | `file:./dev.db` |
-| `NEXTAUTH_SECRET` | Si | Secret para firmar tokens JWT de NextAuth | `mUr0w-S3cur3-K3y-...` |
+| `NEXTAUTH_SECRET` | Si | Secret para firmar tokens JWT de NextAuth | `p@ywL-S3cur3-K3y-...` |
 | `NEXTAUTH_URL` | Si | URL base de la aplicacion | `http://localhost:3001` |
 | `NEXT_PUBLIC_GA_ID` | No | ID de Google Analytics 4 | `G-XXXXXXXXXX` |
 | `HUBSPOT_API_KEY` | No | API key de HubSpot para enviar leads | `pat-na1-xxxx` |
@@ -33,7 +33,7 @@ openssl rand -base64 32
 ```
 
 ### NEXTAUTH_URL
-URL base donde corre la aplicacion. En desarrollo es `http://localhost:3001`. En produccion debe apuntar al dominio real (ej: `https://murow.io`).
+URL base donde corre la aplicacion. En desarrollo es `http://localhost:3001`. En produccion debe apuntar al dominio real (ej: `https://paywl.io`).
 
 **Importante:** El puerto 3001 se usa porque el puerto 3000 esta reservado para el proyecto Niveleads.
 

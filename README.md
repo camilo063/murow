@@ -1,10 +1,10 @@
-# MUROW — The Paywall Engine for Media
+# PAYWL — The Paywall Engine for Media
 
 Motor de paywall SaaS para medios digitales en America Latina. Construido por [Nivelics SAS](https://nivelics.com).
 
-## Que es MUROW
+## Que es PAYWL
 
-MUROW es una plataforma SaaS que permite a medios digitales latinoamericanos monetizar su contenido con suscripciones de pago. Ofrece:
+PAYWL es una plataforma SaaS que permite a medios digitales latinoamericanos monetizar su contenido con suscripciones de pago. Ofrece:
 
 - **5 tipos de muro** configurables sin codigo (Hard, Metered, Lead Wall, Mobile Rule, Loyalty Wall)
 - **Arquitectura desacoplada** — no modifica tu CMS, solo agrega un script JS de < 15KB
@@ -70,7 +70,7 @@ npm run dev
 
 | Campo | Valor |
 |-------|-------|
-| Email | `admin@murow.io` |
+| Email | `admin@paywl.io` |
 | Password | `Mur0w@dm1n2026!` |
 
 ## Scripts

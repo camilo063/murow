@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "murow.io",
+        hostname: "paywl.io",
       },
     ],
   },

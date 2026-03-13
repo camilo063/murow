@@ -86,7 +86,7 @@ export default function IntegrationsSection({ integrations }: IntegrationsSectio
             <span className="text-[#00B4D8]">Y con lo que usaras manana.</span>
           </h2>
           <p className="text-lg text-[#4A5568] leading-relaxed">
-            MUROW no te obliga a cambiar tu stack. Se integra con las herramientas que tu equipo ya
+            PAYWL no te obliga a cambiar tu stack. Se integra con las herramientas que tu equipo ya
             conoce y domina, para que la transicion sea invisible y el impacto inmediato.
           </p>
         </motion.div>

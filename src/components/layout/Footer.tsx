@@ -41,7 +41,7 @@ export default function Footer() {
               href="/"
               className="block font-sans text-2xl font-extrabold text-white tracking-tight"
             >
-              MUROW
+              PAYWL
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               The Paywall Engine for Media
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 border-t border-white/10 pt-6">
           <p className="text-center text-xs text-gray-500">
-            &copy; 2026 MUROW by Nivelics SAS &middot; Colombia &middot; USA
+            &copy; 2026 PAYWL by Nivelics SAS &middot; Colombia &middot; USA
           </p>
         </div>
       </div>

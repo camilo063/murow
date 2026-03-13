@@ -132,7 +132,7 @@ function ArchBlock({
 /* ------------------------------------------------------------------ */
 export default function WhatIsSection({ pillars }: WhatIsSectionProps) {
   return (
-    <section id="que-es-murow" className="py-20 md:py-28" style={{ background: "#F0F7FF" }}>
+    <section id="que-es-paywl" className="py-20 md:py-28" style={{ background: "#F0F7FF" }}>
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div
@@ -146,7 +146,7 @@ export default function WhatIsSection({ pillars }: WhatIsSectionProps) {
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            MUROW: el motor que vive fuera de tu CMS y trabaja para tu audiencia
+            PAYWL: el motor que vive fuera de tu CMS y trabaja para tu audiencia
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
             Una arquitectura desacoplada que se integra con cualquier CMS o
@@ -165,7 +165,7 @@ export default function WhatIsSection({ pillars }: WhatIsSectionProps) {
         >
           <ArchBlock title="Tu CMS / Sitio Web" />
           <ArrowH label="API REST < 50ms" />
-          <ArchBlock title="MUROW Engine" highlighted />
+          <ArchBlock title="PAYWL Engine" highlighted />
           <ArrowH label="Webhook" />
           <ArchBlock title="Tu Pasarela de Pagos" />
         </motion.div>

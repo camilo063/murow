@@ -107,7 +107,7 @@ function DashboardMock() {
             <div className="h-3 w-3 rounded-full bg-green-400" />
           </div>
           <span className="text-xs font-medium text-white/50">
-            MUROW Dashboard
+            PAYWL Dashboard
           </span>
         </div>
 

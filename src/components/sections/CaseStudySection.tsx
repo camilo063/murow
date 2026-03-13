@@ -145,7 +145,7 @@ export default function CaseStudySection({ caseStudy, logos }: CaseStudySectionP
           className="text-center"
         >
           <p className="text-lg font-semibold text-[#0A2540] mb-2">
-            Detras de MUROW esta{" "}
+            Detras de PAYWL esta{" "}
             <span className="text-[#00B4D8]">Nivelics</span>
           </p>
           <p className="text-sm text-[#4A5568] mb-8 max-w-xl mx-auto">

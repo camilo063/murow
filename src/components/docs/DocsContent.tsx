@@ -313,7 +313,7 @@ export default function DocsContent() {
                 Requisitos previos
               </h3>
               <p className="text-slate-600 mb-4">
-                Antes de comenzar la integracion de MUROW, asegurate de contar
+                Antes de comenzar la integracion de PAYWL, asegurate de contar
                 con lo siguiente:
               </p>
               <ul className="space-y-2 text-slate-600">
@@ -327,7 +327,7 @@ export default function DocsContent() {
                 <li className="flex items-start gap-2">
                   <ChevronRight className="h-5 w-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>CMS con API REST o GraphQL</strong> — MUROW se
+                    <strong>CMS con API REST o GraphQL</strong> — PAYWL se
                     integra con cualquier CMS que exponga endpoints de contenido
                   </span>
                 </li>
@@ -335,20 +335,20 @@ export default function DocsContent() {
                   <ChevronRight className="h-5 w-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
                   <span>
                     <strong>Acceso al HTML de tu sitio</strong> para insertar el
-                    script tag de MUROW (acceso al template o theme)
+                    script tag de PAYWL (acceso al template o theme)
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="h-5 w-5 text-[#00B4D8] flex-shrink-0 mt-0.5" />
                   <span>
-                    <strong>Credenciales de MUROW</strong> — API Key y Tenant ID
+                    <strong>Credenciales de PAYWL</strong> — API Key y Tenant ID
                     proporcionados tras la activacion de tu cuenta
                   </span>
                 </li>
               </ul>
 
               <Callout type="info" title="Entorno de pruebas">
-                MUROW provee un ambiente de sandbox para que pruebes la
+                PAYWL provee un ambiente de sandbox para que pruebes la
                 integracion sin afectar a tus usuarios reales. Las credenciales
                 de sandbox se entregan junto con las de produccion.
               </Callout>
@@ -360,7 +360,7 @@ export default function DocsContent() {
                 Instalacion del SDK JavaScript
               </h3>
               <p className="text-slate-600 mb-4">
-                El SDK de MUROW se carga directamente como un script tag en tu
+                El SDK de PAYWL se carga directamente como un script tag en tu
                 sitio. Pesa menos de <strong>15KB comprimido</strong> y se
                 distribuye desde una CDN global (CloudFront) para latencia
                 minima.
@@ -369,9 +369,9 @@ export default function DocsContent() {
               <CodeBlock
                 title="Insertar en el &lt;head&gt; de tu sitio"
                 language="html"
-                code={`<!-- MUROW Paywall SDK -->
+                code={`<!-- PAYWL Paywall SDK -->
 <script
-  src="https://cdn.murow.io/sdk/v1/murow.min.js"
+  src="https://cdn.paywl.io/sdk/v1/paywl.min.js"
   data-tenant="TU_TENANT_ID"
   data-key="TU_API_KEY"
   async
@@ -385,18 +385,18 @@ export default function DocsContent() {
               <CodeBlock
                 title="Instalacion via npm"
                 language="bash"
-                code={`npm install @murow/sdk
+                code={`npm install @paywl/sdk
 
 # o con yarn
-yarn add @murow/sdk`}
+yarn add @paywl/sdk`}
               />
 
               <CodeBlock
                 title="Importacion en tu proyecto"
                 language="javascript"
-                code={`import { Murow } from '@murow/sdk';
+                code={`import { Paywl } from '@paywl/sdk';
 
-const murow = new Murow({
+const paywl = new Paywl({
   tenantId: 'TU_TENANT_ID',
   apiKey: 'TU_API_KEY',
   environment: 'production', // o 'sandbox' para pruebas
@@ -410,13 +410,13 @@ const murow = new Murow({
                 Configuracion basica
               </h3>
               <p className="text-slate-600 mb-4">
-                MUROW necesita un archivo de configuracion JSON que define las
+                PAYWL necesita un archivo de configuracion JSON que define las
                 reglas de acceso y el comportamiento del muro. Este archivo
                 puede estar embebido en el HTML o cargarse desde tu CMS.
               </p>
 
               <CodeBlock
-                title="murow-config.json"
+                title="paywl-config.json"
                 language="json"
                 code={`{
   "tenant": "TU_TENANT_ID",
@@ -450,7 +450,7 @@ const murow = new Murow({
 
               <Callout type="tip" title="Configuracion dinamica">
                 Las reglas de acceso se pueden modificar en tiempo real desde el
-                panel de administracion de MUROW. No es necesario redesplegar
+                panel de administracion de PAYWL. No es necesario redesplegar
                 tu sitio para cambiar la configuracion de las reglas.
               </Callout>
             </div>
@@ -474,7 +474,7 @@ const murow = new Murow({
                       Inserta el SDK
                     </h4>
                     <p className="text-sm text-slate-600">
-                      Agrega el script tag de MUROW en el{" "}
+                      Agrega el script tag de PAYWL en el{" "}
                       <code className="bg-slate-100 px-1.5 py-0.5 rounded text-sm font-mono">
                         {"<head>"}
                       </code>{" "}
@@ -489,7 +489,7 @@ const murow = new Murow({
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#0A2540] mb-1">
-                      Inicializa MUROW
+                      Inicializa PAYWL
                     </h4>
                     <p className="text-sm text-slate-600 mb-3">
                       En las paginas de contenido, inicializa el SDK y verifica
@@ -498,10 +498,10 @@ const murow = new Murow({
                     <CodeBlock
                       language="javascript"
                       code={`// En cada pagina de articulo
-murow.init();
+paywl.init();
 
 // Verificar si el usuario tiene acceso
-const access = await murow.check({
+const access = await paywl.check({
   contentId: 'articulo-123',
   contentType: 'article',
   section: 'investigaciones'
@@ -509,7 +509,7 @@ const access = await murow.check({
 
 if (!access.granted) {
   // Mostrar el muro de suscripcion
-  murow.wall({
+  paywl.wall({
     target: '#article-content',
     previewParagraphs: 3,
     blur: true
@@ -528,7 +528,7 @@ if (!access.granted) {
                       Configura la pasarela de pagos
                     </h4>
                     <p className="text-sm text-slate-600">
-                      Desde el panel de MUROW, conecta tu cuenta de
+                      Desde el panel de PAYWL, conecta tu cuenta de
                       MercadoPago, Stripe o Wompi. Los flujos de pago se
                       manejan automaticamente por el SDK.
                     </p>
@@ -576,28 +576,28 @@ if (!access.granted) {
                 </span>
               </h3>
               <p className="text-slate-600 mb-4">
-                Strapi v5 es el stack del piloto oficial de MUROW. La
+                Strapi v5 es el stack del piloto oficial de PAYWL. La
                 integracion utiliza un middleware de validacion de acceso que
                 se ejecuta antes de servir el contenido.
               </p>
 
               <CodeBlock
-                title="Middleware de validacion — src/middlewares/murow-access.ts"
+                title="Middleware de validacion — src/middlewares/paywl-access.ts"
                 language="typescript"
-                code={`import { Murow } from '@murow/sdk-node';
+                code={`import { Paywl } from '@paywl/sdk-node';
 
-const murow = new Murow({
-  tenantId: process.env.MUROW_TENANT_ID,
-  apiKey: process.env.MUROW_API_KEY,
+const paywl = new Paywl({
+  tenantId: process.env.PAYWL_TENANT_ID,
+  apiKey: process.env.PAYWL_API_KEY,
 });
 
 export default () => {
   return async (ctx, next) => {
     const { slug } = ctx.params;
-    const userId = ctx.state?.user?.id || ctx.cookies.get('murow_uid');
+    const userId = ctx.state?.user?.id || ctx.cookies.get('paywl_uid');
 
-    // Verificar acceso con MUROW Engine
-    const access = await murow.checkAccess({
+    // Verificar acceso con PAYWL Engine
+    const access = await paywl.checkAccess({
       userId,
       contentId: slug,
       contentType: ctx.request.url.includes('/articles')
@@ -606,7 +606,7 @@ export default () => {
     });
 
     // Inyectar resultado en el response
-    ctx.state.murowAccess = access;
+    ctx.state.paywlAccess = access;
 
     await next();
 
@@ -633,7 +633,7 @@ export default () => {
   'strapi::cors',
   // ... otros middlewares
   {
-    name: 'global::murow-access',
+    name: 'global::paywl-access',
     config: {},
   },
   'strapi::body',
@@ -651,7 +651,7 @@ export default () => {
                 </span>
               </h3>
               <p className="text-slate-600 mb-4">
-                Para WordPress, MUROW funciona con un plugin ligero que
+                Para WordPress, PAYWL funciona con un plugin ligero que
                 inyecta el SDK en el frontend y agrega filtros de contenido.
                 El plugin esta actualmente en desarrollo activo.
               </p>
@@ -662,17 +662,17 @@ export default () => {
                 code={`# Proximamente disponible en el repositorio de WordPress
 # Por ahora, instalacion manual:
 cd wp-content/plugins/
-git clone https://github.com/nivelics/murow-wp.git
-wp plugin activate murow-wp`}
+git clone https://github.com/nivelics/paywl-wp.git
+wp plugin activate paywl-wp`}
               />
 
               <CodeBlock
                 title="Configuracion en wp-config.php"
                 language="php"
-                code={`// Credenciales de MUROW
-define('MUROW_TENANT_ID', 'tu-tenant-id');
-define('MUROW_API_KEY', 'tu-api-key');
-define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
+                code={`// Credenciales de PAYWL
+define('PAYWL_TENANT_ID', 'tu-tenant-id');
+define('PAYWL_API_KEY', 'tu-api-key');
+define('PAYWL_ENVIRONMENT', 'production'); // o 'sandbox'`}
               />
 
               <Callout type="warning" title="Plugin en desarrollo">
@@ -692,16 +692,16 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
               </h3>
               <p className="text-slate-600 mb-4">
                 Cualquier CMS headless que exponga una API REST o GraphQL
-                puede integrarse con MUROW. El contrato de integracion
+                puede integrarse con PAYWL. El contrato de integracion
                 estandar define los endpoints que tu CMS debe implementar y
-                los que MUROW expone.
+                los que PAYWL expone.
               </p>
 
               <CodeBlock
                 title="Contrato de integracion — Diagrama de flujo"
                 language="text"
                 code={`┌──────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│  Tu CMS      │────>│  MUROW Engine    │────>│  Pasarela Pago  │
+│  Tu CMS      │────>│  PAYWL Engine    │────>│  Pasarela Pago  │
 │  (Frontend)  │<────│  (API REST)      │<────│  (MercadoPago)  │
 └──────────────┘     └──────────────────┘     └─────────────────┘
        │                      │
@@ -731,14 +731,14 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
               API Reference
             </h2>
             <p className="text-slate-600 mb-8">
-              La API de MUROW utiliza REST sobre HTTPS. Todas las requests
+              La API de PAYWL utiliza REST sobre HTTPS. Todas las requests
               deben incluir el header{" "}
               <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-sm">
                 Authorization: Bearer TU_API_KEY
               </code>
               . La URL base es{" "}
               <code className="bg-slate-100 px-1.5 py-0.5 rounded font-mono text-sm">
-                https://api.murow.io
+                https://api.paywl.io
               </code>
               .
             </p>
@@ -759,7 +759,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                       name: "userId",
                       type: "string",
                       required: false,
-                      desc: "ID del usuario. Si no se provee, se usa la cookie murow_uid.",
+                      desc: "ID del usuario. Si no se provee, se usa la cookie paywl_uid.",
                     },
                     {
                       name: "contentId",
@@ -834,7 +834,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                       name: "id",
                       type: "string",
                       required: true,
-                      desc: "ID del suscriptor en MUROW.",
+                      desc: "ID del suscriptor en PAYWL.",
                     },
                   ]}
                 />
@@ -872,7 +872,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
               <Endpoint
                 method="POST"
                 path="/api/v1/subscribe"
-                description="Crea una nueva suscripcion. Inicia el flujo de pago con la pasarela configurada y registra al suscriptor en MUROW."
+                description="Crea una nueva suscripcion. Inicia el flujo de pago con la pasarela configurada y registra al suscriptor en PAYWL."
               >
                 <h4 className="font-semibold text-[#0A2540] mb-2">
                   Request Body
@@ -942,7 +942,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                           Descripcion
                         </th>
                         <th className="text-left py-2 px-3 font-semibold text-[#0A2540]">
-                          Accion en MUROW
+                          Accion en PAYWL
                         </th>
                       </tr>
                     </thead>
@@ -1001,7 +1001,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                 <Callout type="warning" title="Seguridad del webhook">
                   Todos los webhooks incluyen una firma HMAC-SHA256 en el
                   header{" "}
-                  <code className="font-mono">X-Murow-Signature</code>. Valida
+                  <code className="font-mono">X-Paywl-Signature</code>. Valida
                   esta firma antes de procesar cualquier evento.
                 </Callout>
               </Endpoint>
@@ -1024,7 +1024,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
               <div className="space-y-6">
                 <div className="border border-slate-200 rounded-xl p-5">
                   <h4 className="font-mono font-bold text-[#0A2540] mb-2">
-                    murow.init(config?)
+                    paywl.init(config?)
                   </h4>
                   <p className="text-sm text-slate-600 mb-3">
                     Inicializa el SDK. Se llama automaticamente si usas el
@@ -1033,7 +1033,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                   </p>
                   <CodeBlock
                     language="javascript"
-                    code={`murow.init({
+                    code={`paywl.init({
   tenantId: 'TU_TENANT_ID',
   apiKey: 'TU_API_KEY',
   debug: false, // true para ver logs en consola
@@ -1043,7 +1043,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
 
                 <div className="border border-slate-200 rounded-xl p-5">
                   <h4 className="font-mono font-bold text-[#0A2540] mb-2">
-                    murow.check(options)
+                    paywl.check(options)
                   </h4>
                   <p className="text-sm text-slate-600 mb-3">
                     Verifica si el usuario actual tiene acceso a un contenido.
@@ -1052,7 +1052,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                   </p>
                   <CodeBlock
                     language="javascript"
-                    code={`const result = await murow.check({
+                    code={`const result = await paywl.check({
   contentId: 'articulo-123',
   contentType: 'article',    // 'article' | 'page' | 'video'
   section: 'investigaciones', // opcional
@@ -1066,7 +1066,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
 
                 <div className="border border-slate-200 rounded-xl p-5">
                   <h4 className="font-mono font-bold text-[#0A2540] mb-2">
-                    murow.wall(options)
+                    paywl.wall(options)
                   </h4>
                   <p className="text-sm text-slate-600 mb-3">
                     Renderiza el muro de suscripcion en el DOM. Maneja
@@ -1075,7 +1075,7 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
                   </p>
                   <CodeBlock
                     language="javascript"
-                    code={`murow.wall({
+                    code={`paywl.wall({
   target: '#article-content',  // Selector CSS del contenedor
   previewParagraphs: 3,        // Parrafos visibles antes del muro
   blur: true,                  // Efecto blur en contenido oculto
@@ -1090,17 +1090,17 @@ define('MUROW_ENVIRONMENT', 'production'); // o 'sandbox'`}
 
                 <div className="border border-slate-200 rounded-xl p-5">
                   <h4 className="font-mono font-bold text-[#0A2540] mb-2">
-                    murow.track(event, data?)
+                    paywl.track(event, data?)
                   </h4>
                   <p className="text-sm text-slate-600 mb-3">
-                    Envia eventos de analytics al dashboard de MUROW. Los
+                    Envia eventos de analytics al dashboard de PAYWL. Los
                     eventos de conversion se envian automaticamente, pero
                     puedes enviar eventos personalizados.
                   </p>
                   <CodeBlock
                     language="javascript"
                     code={`// Evento personalizado
-murow.track('article_shared', {
+paywl.track('article_shared', {
   contentId: 'articulo-123',
   platform: 'twitter',
 });
@@ -1132,7 +1132,7 @@ murow.track('article_shared', {
               <CodeBlock
                 language="javascript"
                 code={`// Escuchar cuando el muro se muestra
-murow.on('wall.shown', (data) => {
+paywl.on('wall.shown', (data) => {
   console.log('Muro mostrado:', data.wallType, data.contentId);
   // Enviar a GA4
   gtag('event', 'paywall_shown', {
@@ -1142,7 +1142,7 @@ murow.on('wall.shown', (data) => {
 });
 
 // Escuchar cuando un usuario se suscribe
-murow.on('wall.converted', (data) => {
+paywl.on('wall.converted', (data) => {
   console.log('Nueva suscripcion:', data.subscriberId, data.planId);
   // Enviar a tu CRM
   fetch('/api/crm/new-subscriber', {
@@ -1152,7 +1152,7 @@ murow.on('wall.converted', (data) => {
 });
 
 // Escuchar cuando el usuario cierra el muro
-murow.on('wall.dismissed', (data) => {
+paywl.on('wall.dismissed', (data) => {
   console.log('Muro cerrado:', data.contentId);
 });`}
               />
@@ -1228,7 +1228,7 @@ murow.on('wall.dismissed', (data) => {
                 language="html"
                 code={`<!-- Cargar el SDK solo cuando el usuario hace scroll -->
 <script
-  src="https://cdn.murow.io/sdk/v1/murow.min.js"
+  src="https://cdn.paywl.io/sdk/v1/paywl.min.js"
   data-tenant="TU_TENANT_ID"
   data-key="TU_API_KEY"
   data-lazy="true"
@@ -1246,8 +1246,8 @@ murow.on('wall.dismissed', (data) => {
               </p>
               <CodeBlock
                 language="javascript"
-                code={`// Modo headless: tu controlas la UI, MUROW maneja la logica
-const access = await murow.check({ contentId: 'articulo-123' });
+                code={`// Modo headless: tu controlas la UI, PAYWL maneja la logica
+const access = await paywl.check({ contentId: 'articulo-123' });
 
 if (!access.granted) {
   // Renderizar tu propio componente de muro
@@ -1255,7 +1255,7 @@ if (!access.granted) {
     <div class="mi-paywall">
       <h2>Contenido exclusivo para suscriptores</h2>
       <p>Has leido \${access.articlesRead} de \${access.articlesLimit} articulos gratuitos.</p>
-      <button onclick="murow.startCheckout('\${access.wallConfig.plans[0].id}')">
+      <button onclick="paywl.startCheckout('\${access.wallConfig.plans[0].id}')">
         Suscribirme por \${access.wallConfig.plans[0].price} \${access.wallConfig.plans[0].currency}/mes
       </button>
     </div>
@@ -1267,11 +1267,11 @@ if (!access.granted) {
                 Analytics Callbacks
               </h4>
               <p className="text-sm text-slate-600 mb-3">
-                Integra MUROW con cualquier plataforma de analytics:
+                Integra PAYWL con cualquier plataforma de analytics:
               </p>
               <CodeBlock
                 language="javascript"
-                code={`murow.init({
+                code={`paywl.init({
   tenantId: 'TU_TENANT_ID',
   apiKey: 'TU_API_KEY',
   analytics: {
@@ -1317,7 +1317,7 @@ if (!access.granted) {
                 Argentina, Chile, Peru, Uruguay
               </p>
               <p className="text-slate-600 mb-4">
-                MUROW utiliza la API de Suscripciones Preaprobadas de
+                PAYWL utiliza la API de Suscripciones Preaprobadas de
                 MercadoPago para manejar cobros recurrentes automaticos.
               </p>
 
@@ -1325,7 +1325,7 @@ if (!access.granted) {
                 1. Configura tus credenciales
               </h4>
               <p className="text-sm text-slate-600 mb-3">
-                En el panel de MUROW, ve a Configuracion &gt; Pasarelas de Pago
+                En el panel de PAYWL, ve a Configuracion &gt; Pasarelas de Pago
                 &gt; MercadoPago e ingresa tus credenciales:
               </p>
               <CodeBlock
@@ -1335,7 +1335,7 @@ if (!access.granted) {
 Public Key:       APP_USR-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Client ID:        xxxxxxxxxxxx
 Client Secret:    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-Webhook URL:      https://api.murow.io/api/v1/webhook/mercadopago/TU_TENANT_ID`}
+Webhook URL:      https://api.paywl.io/api/v1/webhook/mercadopago/TU_TENANT_ID`}
               />
 
               <h4 className="font-semibold text-[#0A2540] mb-2 mt-6">
@@ -1345,13 +1345,13 @@ Webhook URL:      https://api.murow.io/api/v1/webhook/mercadopago/TU_TENANT_ID`}
                 language="javascript"
                 code={`// El SDK maneja todo el flujo automaticamente:
 // 1. Usuario hace clic en "Suscribirme"
-// 2. MUROW crea una preferencia de pago en MercadoPago
+// 2. PAYWL crea una preferencia de pago en MercadoPago
 // 3. Usuario es redirigido al checkout de MercadoPago
 // 4. MercadoPago procesa el pago y envía webhook
-// 5. MUROW activa la suscripcion automaticamente
+// 5. PAYWL activa la suscripcion automaticamente
 
 // Si necesitas personalizar el flujo:
-const checkout = await murow.startCheckout({
+const checkout = await paywl.startCheckout({
   planId: 'mensual',
   gateway: 'mercadopago',
   successUrl: 'https://tumedio.com/bienvenido',
@@ -1364,7 +1364,7 @@ const checkout = await murow.startCheckout({
 
               <Callout type="tip" title="Modo sandbox">
                 Usa credenciales de prueba de MercadoPago para testear el
-                flujo completo sin cobros reales. MUROW detecta
+                flujo completo sin cobros reales. PAYWL detecta
                 automaticamente el ambiente basado en las credenciales
                 proporcionadas.
               </Callout>
@@ -1379,7 +1379,7 @@ const checkout = await murow.startCheckout({
                 </span>
               </h3>
               <p className="text-slate-600 mb-4">
-                MUROW integra Stripe Billing para medios que operan en
+                PAYWL integra Stripe Billing para medios que operan en
                 mercados internacionales o que ya tienen una cuenta de Stripe.
               </p>
 
@@ -1392,18 +1392,18 @@ const checkout = await murow.startCheckout({
                 code={`Secret Key:       sk_live_xxxxxxxxxxxxxxxxxxxx
 Publishable Key:  pk_live_xxxxxxxxxxxxxxxxxxxx
 Webhook Secret:   whsec_xxxxxxxxxxxxxxxxxxxx
-Webhook URL:      https://api.murow.io/api/v1/webhook/stripe/TU_TENANT_ID`}
+Webhook URL:      https://api.paywl.io/api/v1/webhook/stripe/TU_TENANT_ID`}
               />
 
               <CodeBlock
                 title="Configuracion de productos en Stripe"
                 language="javascript"
-                code={`// MUROW crea automaticamente los productos y precios
+                code={`// PAYWL crea automaticamente los productos y precios
 // en tu cuenta de Stripe basandose en los planes
-// configurados en el panel de MUROW.
+// configurados en el panel de PAYWL.
 
 // Tambien puedes vincular productos existentes:
-// Panel MUROW > Pasarelas > Stripe > Mapeo de Productos
+// Panel PAYWL > Pasarelas > Stripe > Mapeo de Productos
 
 // Ejemplo de mapeo:
 {
@@ -1443,7 +1443,7 @@ Webhook URL:      https://api.murow.io/api/v1/webhook/stripe/TU_TENANT_ID`}
 Private Key:      prv_prod_xxxxxxxxxxxxxxxxxxxx
 Events Secret:    prod_events_xxxxxxxxxxxxxxxxxxxx
 Integrity Secret: prod_integrity_xxxxxxxxxxxxxxxxxxxx
-Webhook URL:      https://api.murow.io/api/v1/webhook/wompi/TU_TENANT_ID`}
+Webhook URL:      https://api.paywl.io/api/v1/webhook/wompi/TU_TENANT_ID`}
               />
 
               <h4 className="font-semibold text-[#0A2540] mb-2 mt-6">
@@ -1486,15 +1486,15 @@ Webhook URL:      https://api.murow.io/api/v1/webhook/wompi/TU_TENANT_ID`}
               <CodeBlock
                 title="Flujo de pago con Wompi"
                 language="javascript"
-                code={`// MUROW maneja el widget de Wompi automaticamente
-const checkout = await murow.startCheckout({
+                code={`// PAYWL maneja el widget de Wompi automaticamente
+const checkout = await paywl.startCheckout({
   planId: 'mensual',
   gateway: 'wompi',
   // Wompi soporta pagos recurrentes via tokenizacion
-  // MUROW gestiona la renovacion automatica
+  // PAYWL gestiona la renovacion automatica
 });
 
-// Para pagos recurrentes, MUROW:
+// Para pagos recurrentes, PAYWL:
 // 1. Tokeniza la tarjeta del usuario via Wompi
 // 2. Almacena el token de forma segura (PCI-DSS compliant)
 // 3. Ejecuta el cobro automatico cada periodo

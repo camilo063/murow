@@ -4,14 +4,14 @@ import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Blog — MUROW | Monetizacion de Medios Digitales",
+  title: "Blog — PAYWL | Monetizacion de Medios Digitales",
   description:
     "Articulos, guias y casos de estudio sobre monetizacion de contenido digital, paywalls, suscripciones y estrategia de medios en America Latina.",
   openGraph: {
-    title: "Blog — MUROW | Monetizacion de Medios Digitales",
+    title: "Blog — PAYWL | Monetizacion de Medios Digitales",
     description:
       "Guias y casos de estudio sobre monetizacion de contenido digital.",
-    url: "https://murow.io/blog",
+    url: "https://paywl.io/blog",
   },
 };
 
@@ -25,8 +25,8 @@ export default async function BlogPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Blog", url: "https://murow.io/blog" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Blog", url: "https://paywl.io/blog" },
         ]}
       />
 

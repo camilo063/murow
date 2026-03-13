@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Terminos de Servicio — MUROW by Nivelics SAS",
+  title: "Terminos de Servicio — PAYWL by Nivelics SAS",
   description:
-    "Terminos y condiciones de uso de la plataforma MUROW, operada por Nivelics SAS. Condiciones generales del servicio SaaS de paywall.",
+    "Terminos y condiciones de uso de la plataforma PAYWL, operada por Nivelics SAS. Condiciones generales del servicio SaaS de paywall.",
   openGraph: {
-    title: "Terminos de Servicio — MUROW",
+    title: "Terminos de Servicio — PAYWL",
     description:
-      "Condiciones generales del servicio SaaS de paywall MUROW.",
-    url: "https://murow.io/terminos",
+      "Condiciones generales del servicio SaaS de paywall PAYWL.",
+    url: "https://paywl.io/terminos",
   },
 };
 
@@ -23,8 +23,8 @@ export default function TerminosPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Terminos de Servicio", url: "https://murow.io/terminos" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Terminos de Servicio", url: "https://paywl.io/terminos" },
         ]}
       />
 
@@ -47,7 +47,7 @@ export default function TerminosPage() {
                 1. Aceptacion de los terminos
               </h2>
               <p className={paraClass}>
-                Al acceder y utilizar la plataforma MUROW (en adelante, &quot;el Servicio&quot;),
+                Al acceder y utilizar la plataforma PAYWL (en adelante, &quot;el Servicio&quot;),
                 operada por Nivelics SAS (en adelante, &quot;Nivelics&quot;), aceptas quedar
                 vinculado por estos Terminos de Servicio. Si no estas de acuerdo con
                 alguna parte de estos terminos, no debes utilizar el Servicio.
@@ -60,7 +60,7 @@ export default function TerminosPage() {
                 2. Descripcion del servicio
               </h2>
               <p className={paraClass}>
-                MUROW es una plataforma SaaS (Software as a Service) que provee un motor
+                PAYWL es una plataforma SaaS (Software as a Service) que provee un motor
                 de paywall configurable para medios de comunicacion digitales. El
                 Servicio incluye:
               </p>

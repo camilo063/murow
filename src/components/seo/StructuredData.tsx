@@ -3,8 +3,8 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Nivelics SAS",
-    url: "https://murow.io",
-    logo: "https://murow.io/logo.svg",
+    url: "https://paywl.io",
+    logo: "https://paywl.io/logo.svg",
     description:
       "Empresa de tecnologia con 14 anos de experiencia construyendo producto digital para medios en America Latina.",
     foundingDate: "2012",
@@ -33,7 +33,7 @@ export function SoftwareApplicationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "MUROW",
+    name: "PAYWL",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description:

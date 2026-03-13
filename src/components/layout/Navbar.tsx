@@ -53,7 +53,7 @@ export default function Navbar() {
             href="/"
             className="font-sans text-xl font-extrabold text-deep-navy tracking-tight"
           >
-            MUROW
+            PAYWL
           </Link>
 
           {/* Center links — desktop */}

@@ -4,14 +4,14 @@ import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import PilotoForm from "@/components/forms/PilotoForm";
 
 export const metadata: Metadata = {
-  title: "Piloto Gratuito 3 Meses — MUROW Paywall",
+  title: "Piloto Gratuito 3 Meses — PAYWL Paywall",
   description:
-    "Implementa el motor de paywall MUROW en tu medio digital gratis durante 3 meses. Sin costo de implementacion, sin clausulas ocultas. Tu data es tuya.",
+    "Implementa el motor de paywall PAYWL en tu medio digital gratis durante 3 meses. Sin costo de implementacion, sin clausulas ocultas. Tu data es tuya.",
   openGraph: {
-    title: "Piloto Gratuito 3 Meses — MUROW Paywall",
+    title: "Piloto Gratuito 3 Meses — PAYWL Paywall",
     description:
-      "Implementa el motor de paywall MUROW en tu medio digital gratis durante 3 meses.",
-    url: "https://murow.io/piloto",
+      "Implementa el motor de paywall PAYWL en tu medio digital gratis durante 3 meses.",
+    url: "https://paywl.io/piloto",
   },
 };
 
@@ -53,8 +53,8 @@ export default function PilotoPage() {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Inicio", url: "https://murow.io" },
-          { name: "Piloto Gratuito", url: "https://murow.io/piloto" },
+          { name: "Inicio", url: "https://paywl.io" },
+          { name: "Piloto Gratuito", url: "https://paywl.io/piloto" },
         ]}
       />
 
@@ -67,7 +67,7 @@ export default function PilotoPage() {
               className="font-sans text-xl font-extrabold tracking-tight"
               style={{ color: "#0A2540" }}
             >
-              MUROW
+              PAYWL
             </Link>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function PilotoPage() {
                 className="mb-6 text-4xl font-extrabold leading-tight md:text-5xl"
                 style={{ color: "#0A2540" }}
               >
-                3 meses de MUROW.{" "}
+                3 meses de PAYWL.{" "}
                 <span style={{ color: "#00B4D8" }}>Gratis.</span>{" "}
                 <span className="block">Sin letra pequena.</span>
               </h1>

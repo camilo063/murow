@@ -10,17 +10,17 @@ const adapter = new PrismaNeon({ connectionString });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  console.log('🌱 Starting MUROW database seed...\n');
+  console.log('🌱 Starting PAYWL database seed...\n');
 
   // ─── Admin User ───────────────────────────────────────────────
-  const passwordHash = await bcrypt.hash('Mur0w@dm1n2026!', 12);
+  const passwordHash = await bcrypt.hash('P@ywl@dm1n2026!', 12);
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@murow.io' },
+    where: { email: 'admin@paywl.io' },
     update: {},
     create: {
-      email: 'admin@murow.io',
+      email: 'admin@paywl.io',
       password: passwordHash,
-      name: 'Admin MUROW',
+      name: 'Admin PAYWL',
       role: 'admin',
     },
   });
@@ -35,7 +35,7 @@ async function main() {
       ctaPrimaryText: 'Quiero el piloto gratuito',
       ctaPrimaryLink: '/piloto',
       ctaSecondaryText: 'Ver como funciona',
-      ctaSecondaryLink: '#que-es-murow',
+      ctaSecondaryLink: '#que-es-paywl',
       badgeText: 'Piloto de 3 meses SIN COSTO para medios elegibles',
       isActive: true,
     },
@@ -106,7 +106,7 @@ async function main() {
         description:
           'Configura quien puede leer que, en cuanto tiempo y bajo que condiciones — sin tocar una linea de codigo. Desde tu panel de administracion, un editor puede cerrar un articulo de investigacion en 10 segundos o abrir el acceso para todos los lectores durante un evento de breaking news.',
         impactNote:
-          'En Piano, configurar una regla compleja requiere un ingeniero certificado. En MUROW, lo hace el Editor Jefe desde el celular.',
+          'En Piano, configurar una regla compleja requiere un ingeniero certificado. En PAYWL, lo hace el Editor Jefe desde el celular.',
         sortOrder: 1,
       },
     }),
@@ -362,7 +362,7 @@ async function main() {
     }),
     prisma.competitor.create({
       data: {
-        name: 'MUROW',
+        name: 'PAYWL',
         setup: '$0 (Piloto)',
         monthly: '$450-$850/mes',
         localPayment: 'MP, PSE, Wompi',
@@ -384,7 +384,7 @@ async function main() {
         title: 'Discovery y Configuracion de Reglas',
         timeframe: 'Semanas 1-2',
         activities:
-          'Reunion de kickoff con el equipo editorial y tecnico. Definicion de las reglas de negocio. Configuracion del tenant en MUROW Engine. Definicion de planes de suscripcion. Conexion con la pasarela de pagos.',
+          'Reunion de kickoff con el equipo editorial y tecnico. Definicion de las reglas de negocio. Configuracion del tenant en PAYWL Engine. Definicion de planes de suscripcion. Conexion con la pasarela de pagos.',
         deliverables:
           'Documento de reglas acordadas. Acceso al panel de administracion. Credenciales de pasarela configurada.',
         sortOrder: 1,
@@ -396,7 +396,7 @@ async function main() {
         title: 'Integracion del Script',
         timeframe: 'Semanas 3-4',
         activities:
-          'Implementacion del SDK JavaScript de MUROW en el CMS. Configuracion de endpoints de validacion. Diseno del componente de muro UI. Integracion del formulario de suscripcion con flujo de pago.',
+          'Implementacion del SDK JavaScript de PAYWL en el CMS. Configuracion de endpoints de validacion. Diseno del componente de muro UI. Integracion del formulario de suscripcion con flujo de pago.',
         deliverables:
           'Script integrado en el CMS. Muro funcional en staging. Flujo de pago completo probado.',
         sortOrder: 2,
@@ -529,7 +529,7 @@ async function main() {
       challenge:
         'Piano y Pelcro no se adaptaban al presupuesto ni a las pasarelas de pago locales colombianas. El equipo tecnico era pequeno y no podia asumir una integracion compleja.',
       solution:
-        'Motor MUROW con arquitectura desacoplada. 3 reglas activas: Hard Paywall en seccion Investigaciones, Metered Paywall (3 articulos/mes) en contenido general, Lead Wall para captura de datos. Integracion con MercadoPago.',
+        'Motor PAYWL con arquitectura desacoplada. 3 reglas activas: Hard Paywall en seccion Investigaciones, Metered Paywall (3 articulos/mes) en contenido general, Lead Wall para captura de datos. Integracion con MercadoPago.',
       metrics: JSON.stringify([
         'X suscriptores en 90 dias de operacion',
         'X% tasa de conversion del Lead Wall a suscripcion de pago',
@@ -537,7 +537,7 @@ async function main() {
         'X% de los suscriptores provienen de trafico organico',
       ]),
       testimonial:
-        'MUROW nos permitio validar nuestra estrategia de suscripciones en tiempo real, con datos que son nuestros y sin depender de una plataforma global que no fue disenada para el mercado colombiano.',
+        'PAYWL nos permitio validar nuestra estrategia de suscripciones en tiempo real, con datos que son nuestros y sin depender de una plataforma global que no fue disenada para el mercado colombiano.',
       author: 'Director Digital, Revista Cambio',
       isMain: true,
       sortOrder: 1,
@@ -552,7 +552,7 @@ async function main() {
         title: 'Agilidad en Reglas de Negocio',
         points: JSON.stringify([
           'Configurar una regla compleja en Piano requiere un ingeniero certificado y dias de trabajo.',
-          'En MUROW, el Editor Jefe define las reglas en una reunion inicial y las ajusta solo desde el panel.',
+          'En PAYWL, el Editor Jefe define las reglas en una reunion inicial y las ajusta solo desde el panel.',
           'Las reglas no estan quemadas en el codigo. Viven en la base de datos y se modifican en tiempo real.',
         ]),
         sortOrder: 1,
@@ -587,9 +587,9 @@ async function main() {
   const faqItems = await Promise.all([
     prisma.faqItem.create({
       data: {
-        question: 'Necesito modificar mi CMS para instalar MUROW?',
+        question: 'Necesito modificar mi CMS para instalar PAYWL?',
         answer:
-          'No. MUROW funciona con una arquitectura desacoplada: el motor de reglas y las suscripciones viven en nuestra infraestructura, no en tu CMS. La integracion consiste en agregar un script JavaScript (< 15KB) y una configuracion minima. Tu CMS solo consulta a MUROW si un usuario tiene acceso o no.',
+          'No. PAYWL funciona con una arquitectura desacoplada: el motor de reglas y las suscripciones viven en nuestra infraestructura, no en tu CMS. La integracion consiste en agregar un script JavaScript (< 15KB) y una configuracion minima. Tu CMS solo consulta a PAYWL si un usuario tiene acceso o no.',
         sortOrder: 1,
       },
     }),
@@ -613,7 +613,7 @@ async function main() {
       data: {
         question: 'Puedo tener varios planes de suscripcion simultaneos?',
         answer:
-          'Si. MUROW soporta multiples planes: mensual, trimestral, anual, acceso por articulo (micropago), planes con descuento para estudiantes, etc. Cada plan puede tener reglas de acceso diferenciadas.',
+          'Si. PAYWL soporta multiples planes: mensual, trimestral, anual, acceso por articulo (micropago), planes con descuento para estudiantes, etc. Cada plan puede tener reglas de acceso diferenciadas.',
         sortOrder: 4,
       },
     }),
@@ -621,7 +621,7 @@ async function main() {
       data: {
         question: 'Que pasa si tengo un pico de trafico durante un evento o breaking news?',
         answer:
-          'MUROW esta construido sobre AWS con auto-scaling. La infraestructura se adapta automaticamente a picos de trafico. El script de frontend se sirve desde una CDN global (CloudFront), con latencia inferior a 50ms desde Colombia.',
+          'PAYWL esta construido sobre AWS con auto-scaling. La infraestructura se adapta automaticamente a picos de trafico. El script de frontend se sirve desde una CDN global (CloudFront), con latencia inferior a 50ms desde Colombia.',
         sortOrder: 5,
       },
     }),
@@ -629,7 +629,7 @@ async function main() {
       data: {
         question: 'El paywall afecta el SEO de mi sitio?',
         answer:
-          'No, si se implementa correctamente. MUROW sigue las directrices de Google para paywalls: los articulos se muestran completos a los robots de busqueda pero bloqueados para usuarios no autenticados. Usamos Schema Markup que Google reconoce y aprueba.',
+          'No, si se implementa correctamente. PAYWL sigue las directrices de Google para paywalls: los articulos se muestran completos a los robots de busqueda pero bloqueados para usuarios no autenticados. Usamos Schema Markup que Google reconoce y aprueba.',
         sortOrder: 6,
       },
     }),
@@ -643,9 +643,9 @@ async function main() {
     }),
     prisma.faqItem.create({
       data: {
-        question: 'MUROW funciona para publicaciones en otros idiomas o paises?',
+        question: 'PAYWL funciona para publicaciones en otros idiomas o paises?',
         answer:
-          'Si. MUROW soporta multiples idiomas en la interfaz del muro (espanol, portugues, ingles). Las reglas de segmentacion por pais permiten aplicar comportamientos diferentes segun la ubicacion del usuario.',
+          'Si. PAYWL soporta multiples idiomas en la interfaz del muro (espanol, portugues, ingles). Las reglas de segmentacion por pais permiten aplicar comportamientos diferentes segun la ubicacion del usuario.',
         sortOrder: 8,
       },
     }),
@@ -657,7 +657,7 @@ async function main() {
     prisma.pageMeta.create({
       data: {
         path: '/',
-        title: 'MUROW — Motor de Paywall para Medios Digitales en LATAM',
+        title: 'PAYWL — Motor de Paywall para Medios Digitales en LATAM',
         description:
           'Motor de paywall SaaS para medios latinoamericanos. Reglas flexibles, MercadoPago integrado, datos 100% tuyos. Piloto gratuito 3 meses.',
       },
@@ -665,15 +665,15 @@ async function main() {
     prisma.pageMeta.create({
       data: {
         path: '/piloto',
-        title: 'Piloto Gratuito 3 Meses — MUROW Paywall',
+        title: 'Piloto Gratuito 3 Meses — PAYWL Paywall',
         description:
-          'Implementamos MUROW en tu medio sin costo. 3 meses de uso activo. Sin compromisos. Solicita tu piloto hoy.',
+          'Implementamos PAYWL en tu medio sin costo. 3 meses de uso activo. Sin compromisos. Solicita tu piloto hoy.',
       },
     }),
     prisma.pageMeta.create({
       data: {
         path: '/precios',
-        title: 'Planes y Precios — MUROW Paywall Engine',
+        title: 'Planes y Precios — PAYWL Paywall Engine',
         description:
           'Business $450/mes - Performance $850/mes - Enterprise desde $1,900/mes. Sin costos ocultos.',
       },
@@ -681,7 +681,7 @@ async function main() {
     prisma.pageMeta.create({
       data: {
         path: '/blog',
-        title: 'Blog y Recursos — MUROW',
+        title: 'Blog y Recursos — PAYWL',
         description:
           'Articulos sobre paywall, monetizacion de contenido digital y estrategias de suscripcion para medios en LATAM.',
       },
@@ -689,9 +689,9 @@ async function main() {
     prisma.pageMeta.create({
       data: {
         path: '/integraciones',
-        title: 'Integraciones — MUROW Paywall Engine',
+        title: 'Integraciones — PAYWL Paywall Engine',
         description:
-          'Conecta MUROW con tu CMS, pasarela de pagos y CRM. Compatible con WordPress, Strapi, MercadoPago, PSE, Wompi y mas.',
+          'Conecta PAYWL con tu CMS, pasarela de pagos y CRM. Compatible con WordPress, Strapi, MercadoPago, PSE, Wompi y mas.',
       },
     }),
   ]);
@@ -715,7 +715,7 @@ async function main() {
 
 <h2>Paso 2: Elige la tecnologia correcta</h2>
 <p>El mercado de plataformas de paywall esta dominado por soluciones enterprise disenadas para mercados anglosajones. Piano.io, Pelcro y Evolok son las opciones mas conocidas, pero presentan barreras significativas para medios en LATAM: precios elevados (desde $3,000 USD/mes), falta de integracion con pasarelas de pago locales como MercadoPago o PSE, y soporte exclusivamente en ingles.</p>
-<p>MUROW fue disenado especificamente para resolver estos problemas. Como motor de paywall SaaS, ofrece una arquitectura desacoplada que no requiere modificar tu CMS, integra pasarelas de pago locales de forma nativa y permite que tu equipo editorial configure las reglas de acceso sin depender del equipo tecnico.</p>
+<p>PAYWL fue disenado especificamente para resolver estos problemas. Como motor de paywall SaaS, ofrece una arquitectura desacoplada que no requiere modificar tu CMS, integra pasarelas de pago locales de forma nativa y permite que tu equipo editorial configure las reglas de acceso sin depender del equipo tecnico.</p>
 
 <h2>Paso 3: Configura tus reglas de acceso</h2>
 <p>Las reglas de acceso definen quien puede leer que contenido y bajo que condiciones. Los tipos mas comunes son: Hard Paywall (bloqueo total), Metered Paywall (N articulos gratis al mes), Lead Wall (acceso gratuito a cambio del email), Mobile Rule (comportamiento diferente por dispositivo) y Loyalty Wall (muro dirigido a lectores frecuentes).</p>
@@ -739,14 +739,14 @@ async function main() {
     }),
     prisma.blogPost.create({
       data: {
-        title: 'Piano vs Pelcro vs MUROW: comparativa de plataformas de paywall para medios 2026',
-        slug: 'piano-vs-pelcro-vs-murow-comparativa',
+        title: 'Piano vs Pelcro vs PAYWL: comparativa de plataformas de paywall para medios 2026',
+        slug: 'piano-vs-pelcro-vs-paywl-comparativa',
         excerpt:
           'Analizamos en detalle las tres plataformas de paywall mas relevantes para medios digitales en 2026. Costos, integraciones, soporte en espanol y propiedad de datos: todo lo que necesitas saber para tomar la decision correcta.',
         content: `<article>
 <h2>El panorama de plataformas de paywall en 2026</h2>
 <p>Elegir la plataforma de paywall correcta es una de las decisiones tecnologicas mas importantes que un medio digital puede tomar. La plataforma que elijas determinara no solo como monetizas tu contenido, sino tambien la experiencia de tus lectores, la flexibilidad de tus reglas de negocio y — crucialmente — quien es dueno de los datos de tus suscriptores.</p>
-<p>En esta comparativa analizamos tres opciones relevantes: Piano.io (el lider enterprise global), Pelcro (una alternativa mid-market) y MUROW (el motor de paywall disenado para medios en LATAM).</p>
+<p>En esta comparativa analizamos tres opciones relevantes: Piano.io (el lider enterprise global), Pelcro (una alternativa mid-market) y PAYWL (el motor de paywall disenado para medios en LATAM).</p>
 
 <h2>Piano.io: El gigante enterprise</h2>
 <p>Piano.io es la plataforma de paywall mas grande del mundo, utilizada por medios como The Wall Street Journal, The Economist y Le Monde. Ofrece un conjunto robusto de herramientas que incluye paywall, gestcion de suscripciones, DMP y personalizacion de contenido.</p>
@@ -757,22 +757,22 @@ async function main() {
 <p>Pelcro se posiciona como una alternativa mas accesible a Piano. Con costos de setup de $0 a $2,500 USD y mensualidades de $800 USD, es significativamente mas economico. Ofrece un widget de paywall configurable, gestion de suscripciones y un dashboard basico.</p>
 <p>El problema de Pelcro para medios en LATAM es similar al de Piano: solo integra Stripe como pasarela de pago, el soporte es en ingles y la propiedad de los datos es parcial — lo que significa que exportar tu base de suscriptores no es un proceso simple ni inmediato.</p>
 
-<h2>MUROW: Disenado para medios en LATAM</h2>
-<p>MUROW nacio para resolver los problemas especificos que enfrentan los medios digitales latinoamericanos. Con un setup de $0 (piloto gratuito de 3 meses) y mensualidades desde $450 USD, es la opcion mas accesible. Pero el precio no es su unica ventaja.</p>
-<p>MUROW integra de forma nativa las pasarelas de pago que realmente se usan en la region: MercadoPago, PSE, Wompi y Stripe. El soporte es en espanol local, con Account Managers que entienden las dinamicas del mercado colombiano, mexicano y peruano.</p>
+<h2>PAYWL: Disenado para medios en LATAM</h2>
+<p>PAYWL nacio para resolver los problemas especificos que enfrentan los medios digitales latinoamericanos. Con un setup de $0 (piloto gratuito de 3 meses) y mensualidades desde $450 USD, es la opcion mas accesible. Pero el precio no es su unica ventaja.</p>
+<p>PAYWL integra de forma nativa las pasarelas de pago que realmente se usan en la region: MercadoPago, PSE, Wompi y Stripe. El soporte es en espanol local, con Account Managers que entienden las dinamicas del mercado colombiano, mexicano y peruano.</p>
 <p>La propiedad de datos es 100% del medio: todos los datos se almacenan en infraestructura AWS dedicada, con exportacion en CSV/JSON en cualquier momento y sin cargos adicionales. Si decides cambiar de plataforma, te entregan todo tu historial de forma ordenada.</p>
 
 <h2>Comparativa directa</h2>
-<p>En terminos de costo total de propiedad a 12 meses, Piano representa una inversion de $46,000-$61,000 USD, Pelcro de $12,100-$14,600 USD y MUROW de $5,400-$10,200 USD. La diferencia es dramatica, especialmente cuando se considera que MUROW ofrece integraciones locales que las otras plataformas simplemente no tienen.</p>
-<p>En tiempo de implementacion, Piano requiere de 3 a 6 meses, Pelcro de 2 a 4 semanas y MUROW menos de 2 meses (incluyendo capacitacion y QA). La arquitectura desacoplada de MUROW significa que no necesitas modificar tu CMS — solo agregas un script JavaScript ligero.</p>
+<p>En terminos de costo total de propiedad a 12 meses, Piano representa una inversion de $46,000-$61,000 USD, Pelcro de $12,100-$14,600 USD y PAYWL de $5,400-$10,200 USD. La diferencia es dramatica, especialmente cuando se considera que PAYWL ofrece integraciones locales que las otras plataformas simplemente no tienen.</p>
+<p>En tiempo de implementacion, Piano requiere de 3 a 6 meses, Pelcro de 2 a 4 semanas y PAYWL menos de 2 meses (incluyendo capacitacion y QA). La arquitectura desacoplada de PAYWL significa que no necesitas modificar tu CMS — solo agregas un script JavaScript ligero.</p>
 
 <h2>Cual elegir?</h2>
-<p>Si eres un conglomerado editorial global con presupuesto enterprise y necesitas DMP integrado, Piano es tu opcion. Si eres un medio de tamano medio en un mercado anglosanjon, Pelcro puede funcionar. Pero si eres un medio digital en LATAM que necesita monetizar su contenido con pasarelas locales, soporte en espanol y control total de sus datos, MUROW es la plataforma que fue construida para ti.</p>
+<p>Si eres un conglomerado editorial global con presupuesto enterprise y necesitas DMP integrado, Piano es tu opcion. Si eres un medio de tamano medio en un mercado anglosanjon, Pelcro puede funcionar. Pero si eres un medio digital en LATAM que necesita monetizar su contenido con pasarelas locales, soporte en espanol y control total de sus datos, PAYWL es la plataforma que fue construida para ti.</p>
 </article>`,
-        keywords: 'Piano, Pelcro, MUROW, comparativa paywall, plataformas paywall, medios digitales, suscripciones',
-        metaTitle: 'Piano vs Pelcro vs MUROW: comparativa paywall para medios 2026',
+        keywords: 'Piano, Pelcro, PAYWL, comparativa paywall, plataformas paywall, medios digitales, suscripciones',
+        metaTitle: 'Piano vs Pelcro vs PAYWL: comparativa paywall para medios 2026',
         metaDesc:
-          'Comparativa detallada de Piano.io, Pelcro y MUROW. Costos, integraciones, pasarelas locales y propiedad de datos para medios en LATAM.',
+          'Comparativa detallada de Piano.io, Pelcro y PAYWL. Costos, integraciones, pasarelas locales y propiedad de datos para medios en LATAM.',
         published: true,
       },
     }),
@@ -793,20 +793,20 @@ async function main() {
 
 <h2>Arquitectura de integracion</h2>
 <p>La integracion de MercadoPago con un sistema de suscripciones requiere tres componentes: el checkout (donde el usuario ingresa sus datos de pago), el backend de procesamiento (que crea la suscripcion en MercadoPago y almacena el estado) y el sistema de webhooks (que recibe las notificaciones de MercadoPago sobre cada cobro).</p>
-<p>En MUROW, esta integracion viene resuelta de fabrica. Cuando configuras MercadoPago como tu pasarela de pagos, el sistema automaticamente crea los planes de suscripcion en MercadoPago segun los precios que defines en tu panel, procesa los checkouts de forma segura (sin que los datos de tarjeta pasen por tus servidores) y mantiene sincronizado el estado de cada suscriptor.</p>
+<p>En PAYWL, esta integracion viene resuelta de fabrica. Cuando configuras MercadoPago como tu pasarela de pagos, el sistema automaticamente crea los planes de suscripcion en MercadoPago segun los precios que defines en tu panel, procesa los checkouts de forma segura (sin que los datos de tarjeta pasen por tus servidores) y mantiene sincronizado el estado de cada suscriptor.</p>
 
 <h2>Manejo de fallos de pago</h2>
 <p>Uno de los desafios mas grandes de los pagos recurrentes es el manejo de fallos. En LATAM, las tarjetas de debito y credito tienen tasas de rechazo mas altas que en mercados desarrollados — por problemas de fondos, tarjetas vencidas o limites de transaccion. Un sistema robusto necesita implementar dunning management: reintentos automaticos escalonados, notificaciones al usuario y periodos de gracia antes de suspender el acceso.</p>
-<p>MercadoPago ofrece reintentos automaticos configurables, pero el medio necesita un sistema que interprete los webhooks de fallo y gestione el acceso del suscriptor en consecuencia. MUROW maneja esto de forma automatica: cuando un pago falla, el suscriptor pasa a estado "En Riesgo", recibe notificaciones por email y tiene un periodo de gracia configurable antes de que se le suspenda el acceso al contenido premium.</p>
+<p>MercadoPago ofrece reintentos automaticos configurables, pero el medio necesita un sistema que interprete los webhooks de fallo y gestione el acceso del suscriptor en consecuencia. PAYWL maneja esto de forma automatica: cuando un pago falla, el suscriptor pasa a estado "En Riesgo", recibe notificaciones por email y tiene un periodo de gracia configurable antes de que se le suspenda el acceso al contenido premium.</p>
 
 <h2>Consideraciones de seguridad</h2>
-<p>La seguridad en pagos digitales no es negociable. MercadoPago cumple con PCI-DSS Level 1, lo que significa que los datos de tarjeta son procesados exclusivamente en los servidores de MercadoPago. Tu medio nunca ve ni almacena numeros de tarjeta. MUROW refuerza esto con cifrado en transito (TLS 1.3) y en reposo (AES-256) para todos los datos de suscriptores almacenados en AWS.</p>
+<p>La seguridad en pagos digitales no es negociable. MercadoPago cumple con PCI-DSS Level 1, lo que significa que los datos de tarjeta son procesados exclusivamente en los servidores de MercadoPago. Tu medio nunca ve ni almacena numeros de tarjeta. PAYWL refuerza esto con cifrado en transito (TLS 1.3) y en reposo (AES-256) para todos los datos de suscriptores almacenados en AWS.</p>
 
 <h2>Metricas clave para monitorear</h2>
 <p>Una vez que tu integracion con MercadoPago esta operativa, necesitas monitorear: tasa de aprobacion de cobros (deberia estar por encima del 85%), tasa de churn involuntario (suscriptores que se dan de baja por fallos de pago), revenue neto despues de comisiones y tiempo promedio de resolucion de cobros fallidos. Estas metricas te permiten optimizar tu funnel de pagos y maximizar tus ingresos recurrentes.</p>
 
 <h2>Conclusion</h2>
-<p>MercadoPago es la columna vertebral de los pagos digitales en LATAM, y cualquier medio que quiera vender suscripciones en la region necesita integrarlo correctamente. Con una plataforma como MUROW que trae esta integracion resuelta de fabrica, puedes enfocarte en lo que realmente importa: crear contenido valioso y hacer crecer tu base de suscriptores.</p>
+<p>MercadoPago es la columna vertebral de los pagos digitales en LATAM, y cualquier medio que quiera vender suscripciones en la region necesita integrarlo correctamente. Con una plataforma como PAYWL que trae esta integracion resuelta de fabrica, puedes enfocarte en lo que realmente importa: crear contenido valioso y hacer crecer tu base de suscriptores.</p>
 </article>`,
         keywords: 'MercadoPago, pagos recurrentes, suscripciones, pasarela de pagos, LATAM, cobros automaticos',
         metaTitle: 'MercadoPago para suscripciones: pagos recurrentes en tu medio digital',
@@ -845,7 +845,7 @@ async function main() {
 <p>Medios que implementan esta estrategia dual reportan aumentos del 30-50% en sus ingresos totales en el primer ano. La combinacion de suscripciones + publicidad premium sobre first-party data es el modelo mas sostenible para medios digitales en 2026.</p>
 
 <h2>La importancia de la soberania de datos</h2>
-<p>Un aspecto critico que muchos medios pasan por alto es quien es dueno de los datos capturados. Si usas una plataforma de paywall donde los datos viven en los servidores del proveedor, tu capacidad de explotar ese first-party data esta limitada por los terminos de servicio del proveedor. MUROW garantiza que el 100% de los datos de tus suscriptores son tuyos, almacenados en infraestructura dedicada con exportacion libre en cualquier momento.</p>
+<p>Un aspecto critico que muchos medios pasan por alto es quien es dueno de los datos capturados. Si usas una plataforma de paywall donde los datos viven en los servidores del proveedor, tu capacidad de explotar ese first-party data esta limitada por los terminos de servicio del proveedor. PAYWL garantiza que el 100% de los datos de tus suscriptores son tuyos, almacenados en infraestructura dedicada con exportacion libre en cualquier momento.</p>
 
 <h2>Conclusion</h2>
 <p>En un mundo post-cookies, el paywall es mucho mas que una herramienta de monetizacion directa. Es la estrategia mas inteligente para construir una base de first-party data que te permita conocer a tu audiencia, segmentar tu oferta publicitaria y generar ingresos sostenibles a largo plazo. El medio que no capture datos propios hoy, sera invisible manana.</p>
@@ -881,18 +881,18 @@ async function main() {
 
 <h2>La estrategia hibrida: lo mejor de ambos mundos</h2>
 <p>La mayoria de los medios exitosos no usan un solo tipo de paywall — usan una combinacion estrategica. La estrategia hibrida mas comun es: Metered Paywall para contenido general (3-5 articulos gratis al mes), Hard Paywall para secciones premium (Investigaciones, Opinion, Datos), y Lead Wall para captura de emails en contenido de interes masivo.</p>
-<p>Esta combinacion permite maximizar el trafico organico (a traves del metered), capturar el valor del contenido premium (a traves del hard) y construir una base de leads (a traves del lead wall). Con MUROW, puedes configurar estas tres reglas simultaneamente y aplicarlas a diferentes secciones de tu medio.</p>
+<p>Esta combinacion permite maximizar el trafico organico (a traves del metered), capturar el valor del contenido premium (a traves del hard) y construir una base de leads (a traves del lead wall). Con PAYWL, puedes configurar estas tres reglas simultaneamente y aplicarlas a diferentes secciones de tu medio.</p>
 
 <h2>Como medir el exito de cada modelo</h2>
 <p>Para el metered paywall, las metricas clave son: porcentaje de usuarios que alcanzan el limite (deberia estar entre 15-25%), tasa de conversion de usuarios limitados a suscriptores (benchmark: 2-5%) y articulos promedio consumidos antes de la conversion.</p>
 <p>Para el hard paywall, las metricas son: tasa de conversion directa (visitantes que ven el muro y se suscriben, benchmark: 0.5-2%), bounce rate despues del muro (deberia ser menor al 80%) y revenue por articulo bloqueado.</p>
-<p>En MUROW, el dashboard te muestra estas metricas en tiempo real, desglosadas por regla, seccion y periodo. Esto te permite tomar decisiones informadas sobre como ajustar tu estrategia.</p>
+<p>En PAYWL, el dashboard te muestra estas metricas en tiempo real, desglosadas por regla, seccion y periodo. Esto te permite tomar decisiones informadas sobre como ajustar tu estrategia.</p>
 
 <h2>Errores comunes al configurar un paywall</h2>
 <p>El error mas comun es ser demasiado agresivo demasiado pronto. Si activas un hard paywall en todo tu contenido sin tener una audiencia fiel, el resultado sera una caida masiva de trafico sin suficientes conversiones para compensarla. Otro error frecuente es no segmentar el contenido — tratar todo tu catalogo como si tuviera el mismo valor. Finalmente, muchos medios no miden correctamente y no saben si su paywall esta funcionando o no.</p>
 
 <h2>Conclusion</h2>
-<p>No existe un paywall "correcto" universal. La mejor estrategia depende del tipo de contenido que produces, el tamano de tu audiencia, la disposicion a pagar de tu mercado y tus objetivos de negocio. Lo importante es empezar con una hipotesis, medir los resultados y ajustar. Con una plataforma flexible como MUROW, puedes experimentar con diferentes combinaciones de reglas hasta encontrar la formula que maximice tus ingresos.</p>
+<p>No existe un paywall "correcto" universal. La mejor estrategia depende del tipo de contenido que produces, el tamano de tu audiencia, la disposicion a pagar de tu mercado y tus objetivos de negocio. Lo importante es empezar con una hipotesis, medir los resultados y ajustar. Con una plataforma flexible como PAYWL, puedes experimentar con diferentes combinaciones de reglas hasta encontrar la formula que maximice tus ingresos.</p>
 </article>`,
         keywords: 'metered paywall, hard paywall, suscripciones, monetizacion, contenido digital, estrategia paywall',
         metaTitle: 'Metered paywall vs hard paywall: cual elegir para tu medio digital',
@@ -906,7 +906,7 @@ async function main() {
 
   // ─── Summary ─────────────────────────────────────────────────
   console.log('\n========================================');
-  console.log('  MUROW Seed completed successfully!');
+  console.log('  PAYWL Seed completed successfully!');
   console.log('========================================');
   console.log(`  Admin user:           1`);
   console.log(`  HeroSection:          1`);

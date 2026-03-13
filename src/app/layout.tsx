@@ -11,12 +11,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "MUROW — Motor de Paywall para Medios Digitales en LATAM",
-    template: "%s | MUROW",
+    default: "PAYWL — Motor de Paywall para Medios Digitales en LATAM",
+    template: "%s | PAYWL",
   },
   description:
     "Motor de paywall SaaS para medios latinoamericanos. Reglas flexibles, MercadoPago integrado, datos 100% tuyos. Piloto gratuito 3 meses.",
-  metadataBase: new URL("https://murow.io"),
+  metadataBase: new URL("https://paywl.io"),
   keywords: [
     "paywall",
     "medios digitales",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CO",
-    url: "https://murow.io",
-    siteName: "MUROW",
-    title: "MUROW — Motor de Paywall para Medios Digitales en LATAM",
+    url: "https://paywl.io",
+    siteName: "PAYWL",
+    title: "PAYWL — Motor de Paywall para Medios Digitales en LATAM",
     description:
       "Motor de paywall SaaS para medios latinoamericanos. Reglas flexibles, MercadoPago integrado, datos 100% tuyos.",
     images: [
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MUROW - The Paywall Engine for Media",
+        alt: "PAYWL - The Paywall Engine for Media",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MUROW — Motor de Paywall para Medios Digitales en LATAM",
+    title: "PAYWL — Motor de Paywall para Medios Digitales en LATAM",
     description:
       "Motor de paywall SaaS para medios latinoamericanos. Reglas flexibles, MercadoPago integrado, datos 100% tuyos.",
     images: ["/og-image.png"],
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://murow.io",
+    canonical: "https://paywl.io",
   },
 }
 

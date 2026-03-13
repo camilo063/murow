@@ -1,12 +1,12 @@
-# MUROW - The Paywall Engine for Media
+# PAYWL - The Paywall Engine for Media
 
 > Motor de paywall SaaS para medios digitales en America Latina.
 
-MUROW es una plataforma SaaS de paywall disenada especificamente para medios digitales latinoamericanos. Ofrece un motor de reglas de negocio sin codigo, integracion nativa con pasarelas de pago locales (MercadoPago, PSE, Wompi), soporte en espanol y soberania total de datos.
+PAYWL es una plataforma SaaS de paywall disenada especificamente para medios digitales latinoamericanos. Ofrece un motor de reglas de negocio sin codigo, integracion nativa con pasarelas de pago locales (MercadoPago, PSE, Wompi), soporte en espanol y soberania total de datos.
 
 ## Producto
 
-MUROW permite a los medios digitales monetizar su contenido con:
+PAYWL permite a los medios digitales monetizar su contenido con:
 
 - 5 tipos de muro configurables: Hard Paywall, Metered Paywall, Lead Wall, Mobile Rule, Loyalty Wall
 - Arquitectura desacoplada que no requiere modificar el CMS existente
@@ -26,13 +26,13 @@ Ofrecemos un piloto de 3 meses sin costo para medios elegibles. Sin costo de imp
 
 ## Empresa
 
-MUROW es un producto de Nivelics SAS, empresa con 14 anos de experiencia construyendo producto digital para medios en LATAM. Clientes incluyen El Tiempo, El Espectador, Pulzo, City TV, Caracol, entre otros.
+PAYWL es un producto de Nivelics SAS, empresa con 14 anos de experiencia construyendo producto digital para medios en LATAM. Clientes incluyen El Tiempo, El Espectador, Pulzo, City TV, Caracol, entre otros.
 
 ## Contacto
 
-- Web: https://murow.io
+- Web: https://paywl.io
 - Email: contacto@nivelics.com
-- Piloto gratuito: https://murow.io/piloto
+- Piloto gratuito: https://paywl.io/piloto
 
 ## Integraciones
 
