@@ -1,0 +1,59 @@
+# MUROW - The Paywall Engine for Media
+
+> Motor de paywall SaaS para medios digitales en America Latina.
+
+MUROW es una plataforma SaaS de paywall disenada especificamente para medios digitales latinoamericanos. Ofrece un motor de reglas de negocio sin codigo, integracion nativa con pasarelas de pago locales (MercadoPago, PSE, Wompi), soporte en espanol y soberania total de datos.
+
+## Producto
+
+MUROW permite a los medios digitales monetizar su contenido con:
+
+- 5 tipos de muro configurables: Hard Paywall, Metered Paywall, Lead Wall, Mobile Rule, Loyalty Wall
+- Arquitectura desacoplada que no requiere modificar el CMS existente
+- Integracion con pasarelas de pago locales: MercadoPago, PSE, Wompi, Stripe
+- Dashboard de analytics en tiempo real
+- Soberania total de datos (AWS, exportacion CSV/JSON)
+
+## Planes
+
+- Business: $450 USD/mes - Para medios arrancando su modelo de suscripciones
+- Performance: $850 USD/mes - Para medios en crecimiento optimizando conversion
+- Enterprise: Desde $1,900 USD/mes - Para grupos de medios con necesidades avanzadas
+
+## Piloto Gratuito
+
+Ofrecemos un piloto de 3 meses sin costo para medios elegibles. Sin costo de implementacion, sin obligacion de contratar.
+
+## Empresa
+
+MUROW es un producto de Nivelics SAS, empresa con 14 anos de experiencia construyendo producto digital para medios en LATAM. Clientes incluyen El Tiempo, El Espectador, Pulzo, City TV, Caracol, entre otros.
+
+## Contacto
+
+- Web: https://murow.io
+- Email: contacto@nivelics.com
+- Piloto gratuito: https://murow.io/piloto
+
+## Integraciones
+
+### CMS
+- Strapi v5 (disponible)
+- WordPress (disponible)
+- Ghost (proximamente)
+- API propia para cualquier CMS headless (disponible)
+
+### Pasarelas de Pago
+- MercadoPago (Colombia, Mexico, Argentina, Chile, Peru, Uruguay)
+- PSE / ACH Colombia
+- Wompi
+- Stripe
+
+### CRM y Marketing
+- HubSpot
+- Odoo
+- Mailchimp
+
+### Analytics
+- Google Analytics 4
+- Meta Pixel
+- Google Tag Manager

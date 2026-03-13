@@ -1,0 +1,194 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteConfig {
+  id          String @id @default(cuid())
+  key         String @unique
+  value       String
+  description String @default("")
+}
+
+model HeroSection {
+  id           String @id @default(cuid())
+  headline     String
+  subheadline  String
+  ctaPrimaryText   String
+  ctaPrimaryLink   String
+  ctaSecondaryText String
+  ctaSecondaryLink String
+  badgeText    String
+  isActive     Boolean @default(true)
+}
+
+model TrustStat {
+  id       String @id @default(cuid())
+  value    String
+  label    String
+  sortOrder Int   @default(0)
+}
+
+model TrustLogo {
+  id       String @id @default(cuid())
+  name     String
+  sortOrder Int   @default(0)
+}
+
+model PainCard {
+  id          String @id @default(cuid())
+  icon        String
+  headline    String
+  description String
+  sortOrder   Int    @default(0)
+}
+
+model ProductPillar {
+  id          String @id @default(cuid())
+  icon        String
+  title       String
+  description String
+  impactNote  String @default("")
+  sortOrder   Int    @default(0)
+}
+
+model PaywallRule {
+  id          String @id @default(cuid())
+  ruleNumber  Int
+  icon        String
+  name        String
+  visibleName String
+  description String
+  useCase     String
+  example     String
+  sortOrder   Int    @default(0)
+}
+
+model PricingPlan {
+  id           String @id @default(cuid())
+  name         String
+  slug         String @unique
+  priceMonthly Int
+  priceAnnual  Int
+  focus        String
+  targetAudience String
+  isRecommended  Boolean @default(false)
+  features     String
+  sortOrder    Int     @default(0)
+}
+
+model Competitor {
+  id             String @id @default(cuid())
+  name           String
+  setup          String
+  monthly        String
+  localPayment   String
+  spanishSupport String
+  ownData        String
+  implementation String
+  isHighlighted  Boolean @default(false)
+  sortOrder      Int     @default(0)
+}
+
+model ImplementationStep {
+  id          String @id @default(cuid())
+  stepNumber  Int
+  title       String
+  timeframe   String
+  activities  String
+  deliverables String
+  sortOrder   Int    @default(0)
+}
+
+model DashboardMetric {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  sortOrder   Int    @default(0)
+}
+
+model Integration {
+  id        String @id @default(cuid())
+  category  String
+  name      String
+  status    String
+  details   String @default("")
+  sortOrder Int    @default(0)
+}
+
+model CaseStudy {
+  id          String @id @default(cuid())
+  clientName  String
+  description String
+  challenge   String
+  solution    String
+  metrics     String
+  testimonial String
+  author      String
+  isMain      Boolean @default(true)
+  sortOrder   Int     @default(0)
+}
+
+model Differentiator {
+  id          String @id @default(cuid())
+  title       String
+  points      String
+  sortOrder   Int    @default(0)
+}
+
+model FaqItem {
+  id        String @id @default(cuid())
+  question  String
+  answer    String
+  sortOrder Int    @default(0)
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String
+  keywords    String   @default("")
+  metaTitle   String   @default("")
+  metaDesc    String   @default("")
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PilotoLead {
+  id              String   @id @default(cuid())
+  fullName        String
+  mediaName       String
+  position        String
+  email           String
+  country         String
+  pageViews       String
+  currentCms      String
+  hasSubscription String
+  challenge       String   @default("")
+  createdAt       DateTime @default(now())
+}
+
+model PageMeta {
+  id          String @id @default(cuid())
+  path        String @unique
+  title       String
+  description String
+  ogImage     String @default("")
+}
