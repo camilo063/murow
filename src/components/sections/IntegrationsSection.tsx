@@ -13,6 +13,11 @@ interface Integration {
 
 interface IntegrationsSectionProps {
   integrations: Integration[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
+  ctaTitle?: string;
+  ctaSubtitle?: string;
+  ctaButtonText?: string;
 }
 
 function StatusBadge({ status }: { status: string }) {
@@ -56,7 +61,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export default function IntegrationsSection({ integrations }: IntegrationsSectionProps) {
+export default function IntegrationsSection({ integrations, sectionTitle, sectionSubtitle, ctaTitle, ctaSubtitle, ctaButtonText }: IntegrationsSectionProps) {
   // Group by category
   const grouped = integrations.reduce<Record<string, Integration[]>>((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
@@ -82,12 +87,10 @@ export default function IntegrationsSection({ integrations }: IntegrationsSectio
             Integraciones
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2540] mb-4 leading-tight">
-            Se conecta con lo que ya usas.{" "}
-            <span className="text-[#00B4D8]">Y con lo que usaras manana.</span>
+            {sectionTitle || <>Se conecta con lo que ya usas.{" "}<span className="text-[#00B4D8]">Y con lo que usaras manana.</span></>}
           </h2>
           <p className="text-lg text-[#4A5568] leading-relaxed">
-            PAYWL no te obliga a cambiar tu stack. Se integra con las herramientas que tu equipo ya
-            conoce y domina, para que la transicion sea invisible y el impacto inmediato.
+            {sectionSubtitle || "PAYWL no te obliga a cambiar tu stack. Se integra con las herramientas que tu equipo ya conoce y domina, para que la transicion sea invisible y el impacto inmediato."}
           </p>
         </motion.div>
 
@@ -138,16 +141,16 @@ export default function IntegrationsSection({ integrations }: IntegrationsSectio
           className="text-center rounded-2xl bg-white border border-gray-100 p-8 md:p-12 shadow-sm"
         >
           <p className="text-lg font-semibold text-[#0A2540] mb-2">
-            No ves la integracion que necesitas?
+            {ctaTitle ?? "No ves la integracion que necesitas?"}
           </p>
           <p className="text-[#4A5568] mb-6 max-w-lg mx-auto">
-            Nuestro equipo evalua cada solicitud y prioriza las integraciones mas demandadas por la comunidad.
+            {ctaSubtitle ?? "Nuestro equipo evalua cada solicitud y prioriza las integraciones mas demandadas por la comunidad."}
           </p>
           <Link
             href="/contacto"
             className="inline-flex items-center gap-2 rounded-full bg-[#FF6B35] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#FF6B35]/25 hover:bg-[#e55a2a] transition-colors duration-200"
           >
-            Solicitar integracion
+            {ctaButtonText ?? "Solicitar integracion"}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>

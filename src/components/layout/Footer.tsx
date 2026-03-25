@@ -1,6 +1,20 @@
 import Link from "next/link";
 
-const footerColumns = [
+interface FooterLink {
+  columnName: string;
+  label: string;
+  href: string;
+}
+
+interface FooterProps {
+  logoText?: string;
+  tagline?: string;
+  slogan?: string;
+  copyright?: string;
+  links?: FooterLink[];
+}
+
+const defaultFooterColumns = [
   {
     title: "Producto",
     links: [
@@ -30,7 +44,31 @@ const footerColumns = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({
+  logoText = "PAYWL",
+  tagline = "The Paywall Engine for Media",
+  slogan = "Tus datos. Tu medio. Tu control.",
+  copyright = "\u00A9 2026 PAYWL by Nivelics SAS \u00B7 Colombia \u00B7 USA",
+  links,
+}: FooterProps) {
+  // Group links by column name if provided from DB
+  let footerColumns: { title: string; links: { label: string; href: string }[] }[];
+
+  if (links && links.length > 0) {
+    const grouped: Record<string, { label: string; href: string }[]> = {};
+    const columnOrder: string[] = [];
+    for (const link of links) {
+      if (!grouped[link.columnName]) {
+        grouped[link.columnName] = [];
+        columnOrder.push(link.columnName);
+      }
+      grouped[link.columnName].push({ label: link.label, href: link.href });
+    }
+    footerColumns = columnOrder.map((col) => ({ title: col, links: grouped[col] }));
+  } else {
+    footerColumns = defaultFooterColumns;
+  }
+
   return (
     <footer className="bg-deep-navy text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
@@ -41,13 +79,13 @@ export default function Footer() {
               href="/"
               className="block font-sans text-2xl font-extrabold text-white tracking-tight"
             >
-              PAYWL
+              {logoText}
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              The Paywall Engine for Media
+              {tagline}
             </p>
             <p className="text-sm font-medium text-electric-cyan">
-              Tus datos. Tu medio. Tu control.
+              {slogan}
             </p>
           </div>
 
@@ -85,7 +123,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 border-t border-white/10 pt-6">
           <p className="text-center text-xs text-gray-500">
-            &copy; 2026 PAYWL by Nivelics SAS &middot; Colombia &middot; USA
+            {copyright}
           </p>
         </div>
       </div>

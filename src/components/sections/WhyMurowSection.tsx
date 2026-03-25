@@ -8,11 +8,19 @@ interface Differentiator {
   points: string;
 }
 
-interface WhyPaywlSectionProps {
-  differentiators: Differentiator[];
+interface ExitStrategyItem {
+  title: string;
+  description: string;
 }
 
-const exitStrategyItems = [
+interface WhyPaywlSectionProps {
+  differentiators: Differentiator[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
+  exitStrategyItems?: ExitStrategyItem[];
+}
+
+const defaultExitStrategyItems: ExitStrategyItem[] = [
   {
     title: "Entrega de Data",
     description:
@@ -47,7 +55,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export default function WhyPaywlSection({ differentiators }: WhyPaywlSectionProps) {
+export default function WhyPaywlSection({ differentiators, sectionTitle, sectionSubtitle, exitStrategyItems }: WhyPaywlSectionProps) {
+  const exitItems = exitStrategyItems && exitStrategyItems.length > 0 ? exitStrategyItems : defaultExitStrategyItems;
   return (
     <section id="por-que-paywl" className="bg-[#0A2540] py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -60,11 +69,10 @@ export default function WhyPaywlSection({ differentiators }: WhyPaywlSectionProp
           className="max-w-4xl mx-auto text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-            Construido por quienes llevan 14 anos haciendo producto digital para medios en LATAM.
+            {sectionTitle || "Construido por quienes llevan 14 anos haciendo producto digital para medios en LATAM."}
           </h2>
           <p className="text-lg text-[#00B4D8]/80 leading-relaxed">
-            No somos una startup experimentando con medios. Somos el equipo que ya lo hizo, y ahora
-            lo empaqueto para que tu no tengas que empezar de cero.
+            {sectionSubtitle || "No somos una startup experimentando con medios. Somos el equipo que ya lo hizo, y ahora lo empaqueto para que tu no tengas que empezar de cero."}
           </p>
         </motion.div>
 
@@ -126,7 +134,7 @@ export default function WhyPaywlSection({ differentiators }: WhyPaywlSectionProp
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >
-            {exitStrategyItems.map((item, i) => (
+            {exitItems.map((item, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}

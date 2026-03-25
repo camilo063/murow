@@ -5,7 +5,21 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const navLinks = [
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface NavbarProps {
+  logoText?: string;
+  ctaPrimaryText?: string;
+  ctaPrimaryLink?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryLink?: string;
+  links?: NavLink[];
+}
+
+const defaultNavLinks: NavLink[] = [
   { label: "Producto", href: "#producto" },
   { label: "Precios", href: "/precios" },
   { label: "Integraciones", href: "/integraciones" },
@@ -13,7 +27,15 @@ const navLinks = [
   { label: "Docs", href: "/docs" },
 ];
 
-export default function Navbar() {
+export default function Navbar({
+  logoText = "PAYWL",
+  ctaPrimaryText = "Ver Demo",
+  ctaPrimaryLink = "#demo",
+  ctaSecondaryText = "Piloto Gratuito",
+  ctaSecondaryLink = "/piloto",
+  links,
+}: NavbarProps) {
+  const navLinks = links && links.length > 0 ? links : defaultNavLinks;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,7 +77,7 @@ export default function Navbar() {
               scrolled ? "text-[#0A2540]" : "text-white"
             }`}
           >
-            PAYWL
+            {logoText}
           </Link>
 
           {/* Center links — desktop */}
@@ -92,20 +114,20 @@ export default function Navbar() {
           {/* CTA buttons — desktop */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="#demo"
+              href={ctaPrimaryLink}
               className={`rounded-btn px-4 py-1.5 text-sm font-semibold border transition-all duration-300 ${
                 scrolled
                   ? "border-[#0A2540] text-[#0A2540] hover:bg-[#0A2540] hover:text-white"
                   : "border-white/60 text-white hover:border-white hover:bg-white/10"
               }`}
             >
-              Ver Demo
+              {ctaPrimaryText}
             </Link>
             <Link
-              href="/piloto"
+              href={ctaSecondaryLink}
               className="rounded-btn bg-[#FF6B35] px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110 transition-all"
             >
-              Piloto Gratuito
+              {ctaSecondaryText}
             </Link>
           </div>
 
@@ -173,18 +195,18 @@ export default function Navbar() {
                 <hr className="my-3 border-gray-200" />
 
                 <Link
-                  href="#demo"
+                  href={ctaPrimaryLink}
                   onClick={() => setMobileOpen(false)}
                   className="block w-full rounded-btn border border-deep-navy px-4 py-2.5 text-center text-sm font-semibold text-deep-navy hover:bg-deep-navy hover:text-white transition-colors"
                 >
-                  Ver Demo
+                  {ctaPrimaryText}
                 </Link>
                 <Link
-                  href="/piloto"
+                  href={ctaSecondaryLink}
                   onClick={() => setMobileOpen(false)}
                   className="block w-full rounded-btn bg-vibrant-orange px-4 py-2.5 text-center text-sm font-semibold text-white hover:brightness-110 transition-all"
                 >
-                  Piloto Gratuito
+                  {ctaSecondaryText}
                 </Link>
               </div>
             </motion.div>

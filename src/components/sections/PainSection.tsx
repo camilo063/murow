@@ -11,9 +11,11 @@ interface PainCard {
 
 interface PainSectionProps {
   cards: PainCard[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
-export default function PainSection({ cards }: PainSectionProps) {
+export default function PainSection({ cards, sectionTitle, sectionSubtitle }: PainSectionProps) {
   return (
     <section id="problema" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -29,12 +31,10 @@ export default function PainSection({ cards }: PainSectionProps) {
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            &iquest;Por qu&eacute; los medios en LATAM pierden suscriptores
-            antes de empezar?
+            {sectionTitle || "\u00BFPor qu\u00E9 los medios en LATAM pierden suscriptores antes de empezar?"}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
-            Las soluciones globales no fueron dise&ntilde;adas para el mercado
-            latinoamericano.
+            {sectionSubtitle || "Las soluciones globales no fueron dise\u00F1adas para el mercado latinoamericano."}
           </p>
         </motion.div>
 

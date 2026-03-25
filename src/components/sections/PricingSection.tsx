@@ -21,12 +21,17 @@ interface Plan {
 
 interface PricingSectionProps {
   plans: Plan[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
+  pilotTitle?: string;
+  pilotBullets?: string[];
+  pilotCtaText?: string;
 }
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
-export default function PricingSection({ plans }: PricingSectionProps) {
+export default function PricingSection({ plans, sectionTitle, sectionSubtitle, pilotTitle, pilotBullets, pilotCtaText }: PricingSectionProps) {
   const [annual, setAnnual] = useState(false);
 
   return (
@@ -48,11 +53,10 @@ export default function PricingSection({ plans }: PricingSectionProps) {
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            Precios claros. Sin sorpresas. Sin cl&aacute;usulas ocultas.
+            {sectionTitle || "Precios claros. Sin sorpresas. Sin cláusulas ocultas."}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
-            Contrato m&iacute;nimo de 12 meses. Todos los planes incluyen
-            soporte, implementaci&oacute;n y actualizaciones.
+            {sectionSubtitle || "Contrato mínimo de 12 meses. Todos los planes incluyen soporte, implementación y actualizaciones."}
           </p>
         </motion.div>
 
@@ -215,14 +219,14 @@ export default function PricingSection({ plans }: PricingSectionProps) {
           }}
         >
           <h3 className="mb-4 text-2xl font-bold">
-            Programa Piloto de 90 d&iacute;as
+            {pilotTitle ?? "Programa Piloto de 90 d\u00edas"}
           </h3>
           <ul className="mb-6 space-y-2">
-            {[
+            {(pilotBullets ?? [
               "Implementacion completa sin costo adicional",
               "Soporte dedicado durante todo el piloto",
               "Cancela si no ves resultados — sin penalidad",
-            ].map((item) => (
+            ]).map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4" style={{ color: "#00B4D8" }} />
                 {item}
@@ -234,7 +238,7 @@ export default function PricingSection({ plans }: PricingSectionProps) {
             className="inline-flex items-center rounded-lg px-7 py-3 text-sm font-semibold text-white transition hover:brightness-110"
             style={{ background: "#FF6B35" }}
           >
-            Solicitar piloto gratuito
+            {pilotCtaText ?? "Solicitar piloto gratuito"}
           </Link>
         </motion.div>
       </div>

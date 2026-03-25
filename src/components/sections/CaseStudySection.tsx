@@ -16,6 +16,9 @@ interface CaseStudy {
 interface CaseStudySectionProps {
   caseStudy: CaseStudy;
   logos: string[];
+  sectionTitle?: string;
+  nivelicsTitle?: string;
+  nivelicsSubtitle?: string;
 }
 
 const fadeUp = {
@@ -23,7 +26,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export default function CaseStudySection({ caseStudy, logos }: CaseStudySectionProps) {
+export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivelicsTitle, nivelicsSubtitle }: CaseStudySectionProps) {
   let parsedMetrics: { label: string; value: string }[] = [];
   try {
     parsedMetrics = JSON.parse(caseStudy.metrics);
@@ -46,8 +49,7 @@ export default function CaseStudySection({ caseStudy, logos }: CaseStudySectionP
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2540] mb-4 leading-tight">
-            Resultados reales.{" "}
-            <span className="text-[#00B4D8]">No estimaciones.</span>
+            {sectionTitle || <>Resultados reales.{" "}<span className="text-[#00B4D8]">No estimaciones.</span></>}
           </h2>
         </motion.div>
 
@@ -145,11 +147,10 @@ export default function CaseStudySection({ caseStudy, logos }: CaseStudySectionP
           className="text-center"
         >
           <p className="text-lg font-semibold text-[#0A2540] mb-2">
-            Detras de PAYWL esta{" "}
-            <span className="text-[#00B4D8]">Nivelics</span>
+            {nivelicsTitle ?? <>Detras de PAYWL esta{" "}<span className="text-[#00B4D8]">Nivelics</span></>}
           </p>
           <p className="text-sm text-[#4A5568] mb-8 max-w-xl mx-auto">
-            14 anos construyendo producto digital para medios de comunicacion en Latinoamerica.
+            {nivelicsSubtitle ?? "14 anos construyendo producto digital para medios de comunicacion en Latinoamerica."}
           </p>
 
           {/* Logo strip */}

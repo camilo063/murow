@@ -18,6 +18,8 @@ interface Rule {
 
 interface RulesSectionProps {
   rules: Rule[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -48,7 +50,7 @@ function ToggleSwitch() {
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
-export default function RulesSection({ rules }: RulesSectionProps) {
+export default function RulesSection({ rules, sectionTitle, sectionSubtitle }: RulesSectionProps) {
   return (
     <section id="reglas" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -64,11 +66,10 @@ export default function RulesSection({ rules }: RulesSectionProps) {
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            5 tipos de muro. Los activas cuando los necesitas.
+            {sectionTitle || "5 tipos de muro. Los activas cuando los necesitas."}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
-            Activa, desactiva y combina reglas en tiempo real desde el panel de
-            control, sin c&oacute;digo.
+            {sectionSubtitle || "Activa, desactiva y combina reglas en tiempo real desde el panel de control, sin código."}
           </p>
         </motion.div>
 

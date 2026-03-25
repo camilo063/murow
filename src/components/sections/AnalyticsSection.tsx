@@ -19,6 +19,10 @@ interface Metric {
 
 interface AnalyticsSectionProps {
   metrics: Metric[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
+  reportsTitle?: string;
+  reportsSubtitle?: string;
 }
 
 const metricIcons = [BarChart3, TrendingDown, FileText, Globe, Users, DollarSign];
@@ -145,7 +149,7 @@ function DashboardMockup() {
   );
 }
 
-export default function AnalyticsSection({ metrics }: AnalyticsSectionProps) {
+export default function AnalyticsSection({ metrics, sectionTitle, sectionSubtitle, reportsTitle, reportsSubtitle }: AnalyticsSectionProps) {
   return (
     <section id="analytics" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -158,13 +162,10 @@ export default function AnalyticsSection({ metrics }: AnalyticsSectionProps) {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2540] mb-4 leading-tight">
-            Sabes exactamente que funciona y que no.{" "}
-            <span className="text-[#00B4D8]">En tiempo real.</span>
+            {sectionTitle || <>Sabes exactamente que funciona y que no.{" "}<span className="text-[#00B4D8]">En tiempo real.</span></>}
           </h2>
           <p className="text-lg text-[#4A5568] leading-relaxed">
-            El dashboard de PAYWL no es solo un panel de metricas. Es un sistema de inteligencia
-            editorial que te dice que contenido genera suscripciones, que formatos convierten mejor
-            y donde esta tu proxima oportunidad de crecimiento.
+            {sectionSubtitle || "El dashboard de PAYWL no es solo un panel de metricas. Es un sistema de inteligencia editorial que te dice que contenido genera suscripciones, que formatos convierten mejor y donde esta tu proxima oportunidad de crecimiento."}
           </p>
         </motion.div>
 
@@ -212,10 +213,10 @@ export default function AnalyticsSection({ metrics }: AnalyticsSectionProps) {
           className="text-center mb-10"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-[#0A2540] mb-3">
-            Reportes mensuales que hablan tu idioma
+            {reportsTitle ?? "Reportes mensuales que hablan tu idioma"}
           </h3>
           <p className="text-[#4A5568] max-w-2xl mx-auto">
-            Cada mes recibes reportes accionables que traducen datos complejos en decisiones claras para tu equipo editorial y comercial.
+            {reportsSubtitle ?? "Cada mes recibes reportes accionables que traducen datos complejos en decisiones claras para tu equipo editorial y comercial."}
           </p>
         </motion.div>
 
