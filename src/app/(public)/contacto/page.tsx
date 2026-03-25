@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import ContactoForm from "@/components/forms/ContactoForm";
 
@@ -14,7 +15,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactoPage() {
+export default async function ContactoPage() {
+  const config = await prisma.contactoConfig.findFirst();
+
+  const headline = config?.headline || "Hablemos";
+  const subheadline = config?.subheadline || "Tienes preguntas sobre PAYWL? Nuestro equipo esta listo para ayudarte.";
+  const email = config?.email || "contacto@nivelics.com";
+  const calendlyUrl = config?.calendlyUrl || "https://calendly.com";
+  const location = config?.location || "Nivelics SAS\nColombia · USA";
+
   return (
     <>
       <BreadcrumbSchema
@@ -37,10 +46,10 @@ export default function ContactoPage() {
               className="mb-4 text-4xl font-extrabold leading-tight md:text-5xl"
               style={{ color: "#0A2540" }}
             >
-              Hablemos
+              {headline}
             </h1>
             <p className="text-lg" style={{ color: "#4A5568" }}>
-              Tienes preguntas sobre PAYWL? Nuestro equipo esta listo para ayudarte.
+              {subheadline}
             </p>
           </div>
 
@@ -56,11 +65,11 @@ export default function ContactoPage() {
                   Email
                 </h3>
                 <a
-                  href="mailto:contacto@nivelics.com"
+                  href={`mailto:${email}`}
                   className="text-lg font-semibold transition hover:underline"
                   style={{ color: "#00B4D8" }}
                 >
-                  contacto@nivelics.com
+                  {email}
                 </a>
               </div>
 
@@ -87,7 +96,7 @@ export default function ContactoPage() {
                     </p>
                   </div>
                   <a
-                    href="https://calendly.com"
+                    href={calendlyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border px-6 py-3 text-sm font-semibold transition hover:bg-gray-50"
@@ -119,10 +128,8 @@ export default function ContactoPage() {
                 >
                   Oficinas
                 </h3>
-                <p className="text-sm" style={{ color: "#4A5568" }}>
-                  Nivelics SAS
-                  <br />
-                  Colombia &middot; USA
+                <p className="text-sm whitespace-pre-line" style={{ color: "#4A5568" }}>
+                  {location}
                 </p>
               </div>
             </div>

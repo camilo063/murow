@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 interface Stats {
   blogPosts: number;
   leads: number;
+  contactoLeads: number;
   faqItems: number;
   caseStudies: number;
   integrations: number;
@@ -20,10 +21,15 @@ interface Stats {
   trustLogos: number;
   pageMeta: number;
   siteConfig: number;
+  navbarLinks: number;
+  footerLinks: number;
+  sectionContent: number;
+  exitStrategyItems: number;
 }
 
 const statCards: { key: keyof Stats; label: string; color: string }[] = [
   { key: "leads", label: "Piloto Leads", color: "bg-cyan-500" },
+  { key: "contactoLeads", label: "Contacto Leads", color: "bg-cyan-600" },
   { key: "blogPosts", label: "Blog Posts", color: "bg-indigo-500" },
   { key: "faqItems", label: "FAQ Items", color: "bg-emerald-500" },
   { key: "caseStudies", label: "Case Studies", color: "bg-amber-500" },
@@ -34,10 +40,14 @@ const statCards: { key: keyof Stats; label: string; color: string }[] = [
   { key: "productPillars", label: "Product Pillars", color: "bg-blue-500" },
   { key: "paywallRules", label: "Paywall Rules", color: "bg-pink-500" },
   { key: "differentiators", label: "Differentiators", color: "bg-lime-600" },
+  { key: "exitStrategyItems", label: "Exit Strategy", color: "bg-green-600" },
   { key: "implementationSteps", label: "Implementation Steps", color: "bg-sky-500" },
   { key: "dashboardMetrics", label: "Dashboard Metrics", color: "bg-fuchsia-500" },
   { key: "trustStats", label: "Trust Stats", color: "bg-gray-600" },
   { key: "trustLogos", label: "Trust Logos", color: "bg-slate-500" },
+  { key: "navbarLinks", label: "Navbar Links", color: "bg-purple-500" },
+  { key: "footerLinks", label: "Footer Links", color: "bg-purple-600" },
+  { key: "sectionContent", label: "Section Headers", color: "bg-stone-500" },
   { key: "pageMeta", label: "Page Meta", color: "bg-yellow-600" },
   { key: "siteConfig", label: "Site Config", color: "bg-red-500" },
 ];

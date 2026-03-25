@@ -12,9 +12,11 @@ interface Faq {
 
 interface FaqSectionProps {
   faqs: Faq[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
-export default function FaqSection({ faqs }: FaqSectionProps) {
+export default function FaqSection({ faqs, sectionTitle, sectionSubtitle }: FaqSectionProps) {
   // Build FAQ structured data
   const faqSchema = {
     "@context": "https://schema.org",
@@ -47,10 +49,10 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A2540] mb-4">
-            Preguntas frecuentes
+            {sectionTitle || "Preguntas frecuentes"}
           </h2>
           <p className="text-lg text-[#4A5568]">
-            Todo lo que necesitas saber sobre PAYWL antes de dar el siguiente paso.
+            {sectionSubtitle || "Todo lo que necesitas saber sobre PAYWL antes de dar el siguiente paso."}
           </p>
         </motion.div>
 

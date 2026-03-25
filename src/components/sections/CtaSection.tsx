@@ -16,7 +16,25 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
-export default function CtaSection() {
+interface CtaSectionProps {
+  headline?: string;
+  subheadline?: string;
+  ctaPrimaryText?: string;
+  ctaPrimaryLink?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryLink?: string;
+  disclaimerText?: string;
+}
+
+export default function CtaSection({
+  headline = "Tu medio merece monetizar sin depender de nadie.",
+  subheadline = "Unete a los medios digitales latinoamericanos que tomaron el control de sus suscripciones.",
+  ctaPrimaryText = "Quiero el piloto gratuito de 3 meses",
+  ctaPrimaryLink = "/piloto",
+  ctaSecondaryText = "Hablar con un experto",
+  ctaSecondaryLink = "https://calendly.com/paywl/demo",
+  disclaimerText = "Sin tarjeta de credito. Sin compromisos. Configura tu medio en menos de 48 horas y empieza a validar resultados desde la primera semana.",
+}: CtaSectionProps = {}) {
   return (
     <section
       id="cta-final"
@@ -43,15 +61,14 @@ export default function CtaSection() {
             variants={fadeUp}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
           >
-            Tu medio merece monetizar sin depender de nadie.
+            {headline}
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Unete a los medios digitales latinoamericanos que tomaron el control de sus
-            suscripciones.
+            {subheadline}
           </motion.p>
 
           <motion.div
@@ -59,20 +76,20 @@ export default function CtaSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
             <Link
-              href="/piloto"
+              href={ctaPrimaryLink}
               className="inline-flex items-center gap-2 rounded-full bg-[#FF6B35] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#FF6B35]/30 hover:bg-[#e55a2a] hover:shadow-[#FF6B35]/40 transition-all duration-200 hover:scale-[1.02]"
             >
-              Quiero el piloto gratuito de 3 meses
+              {ctaPrimaryText}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <a
-              href="https://calendly.com/paywl/demo"
+              href={ctaSecondaryLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-200"
             >
               <Calendar className="h-5 w-5" />
-              Hablar con un experto
+              {ctaSecondaryText}
             </a>
           </motion.div>
 
@@ -80,8 +97,7 @@ export default function CtaSection() {
             variants={fadeUp}
             className="text-sm text-white/40 max-w-lg mx-auto"
           >
-            Sin tarjeta de credito. Sin compromisos. Configura tu medio en menos de 48 horas y
-            empieza a validar resultados desde la primera semana.
+            {disclaimerText}
           </motion.p>
         </motion.div>
       </div>

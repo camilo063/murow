@@ -4,7 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState, ReactNode } from "react";
 import SessionWrapper from "@/components/admin/SessionWrapper";
-import { sidebarLinks } from "@/components/admin/section-config";
+import { sidebarGroups } from "@/components/admin/section-config";
 
 function AdminLayoutInner({ children }: { children: ReactNode }) {
   const { data: session, status } = useSession();
@@ -100,22 +100,31 @@ function AdminLayoutInner({ children }: { children: ReactNode }) {
         </div>
 
         {/* Nav links */}
-        <nav className="flex-1 overflow-y-auto py-3 px-3 space-y-0.5">
-          {sidebarLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`
-                block px-3 py-2 rounded-lg text-sm font-medium transition-colors
-                ${
-                  isActive(link.href)
-                    ? "bg-cyan-500/20 text-cyan-400"
-                    : "text-gray-300 hover:bg-white/5 hover:text-white"
-                }
-              `}
-            >
-              {link.label}
-            </a>
+        <nav className="flex-1 overflow-y-auto py-3 px-3 space-y-4">
+          {sidebarGroups.map((group) => (
+            <div key={group.group}>
+              <p className="px-3 mb-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-500">
+                {group.group}
+              </p>
+              <div className="space-y-0.5">
+                {group.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`
+                      block px-3 py-2 rounded-lg text-sm font-medium transition-colors
+                      ${
+                        isActive(link.href)
+                          ? "bg-cyan-500/20 text-cyan-400"
+                          : "text-gray-300 hover:bg-white/5 hover:text-white"
+                      }
+                    `}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
       </aside>

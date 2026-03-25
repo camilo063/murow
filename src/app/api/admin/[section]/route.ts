@@ -23,6 +23,16 @@ const sectionModelMap: Record<string, string> = {
   "piloto-leads": "pilotoLead",
   "page-meta": "pageMeta",
   "site-config": "siteConfig",
+  "cta-section": "ctaSection",
+  "navbar-config": "navbarConfig",
+  "navbar-links": "navbarLink",
+  "footer-config": "footerConfig",
+  "footer-links": "footerLink",
+  "section-content": "sectionContent",
+  "exit-strategy": "exitStrategyItem",
+  "contacto-leads": "contactoLead",
+  "contacto-config": "contactoConfig",
+  "piloto-config": "pilotoConfig",
 };
 
 // Models that have a sortOrder field
@@ -40,13 +50,16 @@ const modelsWithSortOrder = new Set([
   "caseStudy",
   "differentiator",
   "faqItem",
+  "navbarLink",
+  "footerLink",
+  "exitStrategyItem",
 ]);
 
 // Models that have a createdAt field
-const modelsWithCreatedAt = new Set(["blogPost", "pilotoLead"]);
+const modelsWithCreatedAt = new Set(["blogPost", "pilotoLead", "contactoLead"]);
 
 // Read-only sections
-const readOnlySections = new Set(["piloto-leads"]);
+const readOnlySections = new Set(["piloto-leads", "contacto-leads"]);
 
 function getModel(modelName: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

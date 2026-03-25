@@ -9,7 +9,7 @@ import ImplementationSection from "@/components/sections/ImplementationSection"
 import AnalyticsSection from "@/components/sections/AnalyticsSection"
 import IntegrationsSection from "@/components/sections/IntegrationsSection"
 import CaseStudySection from "@/components/sections/CaseStudySection"
-import WhyMurowSection from "@/components/sections/WhyMurowSection"
+import WhyPaywlSection from "@/components/sections/WhyMurowSection"
 import FaqSection from "@/components/sections/FaqSection"
 import CtaSection from "@/components/sections/CtaSection"
 import {
@@ -34,6 +34,9 @@ export default async function HomePage() {
     caseStudy,
     differentiators,
     faqs,
+    ctaData,
+    sectionContents,
+    exitStrategyItems,
   ] = await Promise.all([
     prisma.heroSection.findFirst({ where: { isActive: true } }),
     prisma.trustLogo.findMany({ orderBy: { sortOrder: "asc" } }),
@@ -49,7 +52,16 @@ export default async function HomePage() {
     prisma.caseStudy.findFirst({ where: { isMain: true } }),
     prisma.differentiator.findMany({ orderBy: { sortOrder: "asc" } }),
     prisma.faqItem.findMany({ orderBy: { sortOrder: "asc" } }),
+    prisma.ctaSection.findFirst({ where: { isActive: true } }),
+    prisma.sectionContent.findMany(),
+    prisma.exitStrategyItem.findMany({ orderBy: { sortOrder: "asc" } }),
   ])
+
+  // Build section headers lookup
+  const headers: Record<string, { title: string; subtitle: string }> = {}
+  for (const sc of sectionContents) {
+    headers[sc.sectionKey] = { title: sc.title, subtitle: sc.subtitle }
+  }
 
   return (
     <>
@@ -80,6 +92,8 @@ export default async function HomePage() {
 
       {painCards.length > 0 && (
         <PainSection
+          sectionTitle={headers["pain"]?.title}
+          sectionSubtitle={headers["pain"]?.subtitle}
           cards={painCards.map((c) => ({
             icon: c.icon,
             headline: c.headline,
@@ -90,6 +104,8 @@ export default async function HomePage() {
 
       {pillars.length > 0 && (
         <WhatIsSection
+          sectionTitle={headers["what-is"]?.title}
+          sectionSubtitle={headers["what-is"]?.subtitle}
           pillars={pillars.map((p) => ({
             icon: p.icon,
             title: p.title,
@@ -101,6 +117,8 @@ export default async function HomePage() {
 
       {rules.length > 0 && (
         <RulesSection
+          sectionTitle={headers["rules"]?.title}
+          sectionSubtitle={headers["rules"]?.subtitle}
           rules={rules.map((r) => ({
             ruleNumber: r.ruleNumber,
             icon: r.icon,
@@ -115,6 +133,8 @@ export default async function HomePage() {
 
       {plans.length > 0 && (
         <PricingSection
+          sectionTitle={headers["pricing"]?.title}
+          sectionSubtitle={headers["pricing"]?.subtitle}
           plans={plans.map((p) => ({
             name: p.name,
             slug: p.slug,
@@ -130,6 +150,8 @@ export default async function HomePage() {
 
       {competitors.length > 0 && (
         <ComparisonSection
+          sectionTitle={headers["comparison"]?.title}
+          sectionSubtitle={headers["comparison"]?.subtitle}
           competitors={competitors.map((c) => ({
             name: c.name,
             setup: c.setup,
@@ -145,6 +167,8 @@ export default async function HomePage() {
 
       {steps.length > 0 && (
         <ImplementationSection
+          sectionTitle={headers["implementation"]?.title}
+          sectionSubtitle={headers["implementation"]?.subtitle}
           steps={steps.map((s) => ({
             stepNumber: s.stepNumber,
             title: s.title,
@@ -157,6 +181,8 @@ export default async function HomePage() {
 
       {metrics.length > 0 && (
         <AnalyticsSection
+          sectionTitle={headers["analytics"]?.title}
+          sectionSubtitle={headers["analytics"]?.subtitle}
           metrics={metrics.map((m) => ({
             title: m.title,
             description: m.description,
@@ -166,6 +192,8 @@ export default async function HomePage() {
 
       {integrations.length > 0 && (
         <IntegrationsSection
+          sectionTitle={headers["integrations"]?.title}
+          sectionSubtitle={headers["integrations"]?.subtitle}
           integrations={integrations.map((i) => ({
             category: i.category,
             name: i.name,
@@ -177,6 +205,7 @@ export default async function HomePage() {
 
       {caseStudy && (
         <CaseStudySection
+          sectionTitle={headers["case-study"]?.title}
           caseStudy={{
             clientName: caseStudy.clientName,
             description: caseStudy.description,
@@ -191,16 +220,24 @@ export default async function HomePage() {
       )}
 
       {differentiators.length > 0 && (
-        <WhyMurowSection
+        <WhyPaywlSection
+          sectionTitle={headers["why-paywl"]?.title}
+          sectionSubtitle={headers["why-paywl"]?.subtitle}
           differentiators={differentiators.map((d) => ({
             title: d.title,
             points: d.points,
+          }))}
+          exitStrategyItems={exitStrategyItems.map((e) => ({
+            title: e.title,
+            description: e.description,
           }))}
         />
       )}
 
       {faqs.length > 0 && (
         <FaqSection
+          sectionTitle={headers["faq"]?.title}
+          sectionSubtitle={headers["faq"]?.subtitle}
           faqs={faqs.map((f) => ({
             id: f.id,
             question: f.question,
@@ -209,7 +246,18 @@ export default async function HomePage() {
         />
       )}
 
-      <CtaSection />
+      {ctaData && (
+        <CtaSection
+          headline={ctaData.headline}
+          subheadline={ctaData.subheadline}
+          ctaPrimaryText={ctaData.ctaPrimaryText}
+          ctaPrimaryLink={ctaData.ctaPrimaryLink}
+          ctaSecondaryText={ctaData.ctaSecondaryText}
+          ctaSecondaryLink={ctaData.ctaSecondaryLink}
+          disclaimerText={ctaData.disclaimerText}
+        />
+      )}
+      {!ctaData && <CtaSection />}
     </>
   )
 }

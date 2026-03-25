@@ -61,6 +61,13 @@ export default function DataTable({
         </span>
       );
     }
+    if (field.type === "image") {
+      const src = String(value);
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt="" className="h-10 w-10 rounded object-cover border border-gray-200" />
+      );
+    }
     if (field.type === "json") {
       const str = typeof value === "string" ? value : JSON.stringify(value);
       return (

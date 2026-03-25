@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import PilotoForm from "@/components/forms/PilotoForm";
 
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
   },
 };
 
-const trustBullets = [
+const defaultTrustBullets = [
   { text: "$0 implementacion", sub: "Nosotros hacemos todo el setup" },
   { text: "3 meses de uso activo", sub: "Sin compromiso despues del piloto" },
   { text: "Tu data es tuya", sub: "Soberania total de datos desde el dia 1" },
 ];
 
-const afterSteps = [
+const defaultAfterSteps = [
   {
     number: "1",
     title: "Llamada de descubrimiento",
@@ -48,7 +49,30 @@ const afterSteps = [
   },
 ];
 
-export default function PilotoPage() {
+export default async function PilotoPage() {
+  const config = await prisma.pilotoConfig.findFirst();
+
+  const headline = config?.headline || "3 meses de PAYWL. Gratis. Sin letra pequena.";
+  const subheadline = config?.subheadline || "Implementamos el motor de paywall completo en tu medio digital sin costo de setup ni mensualidad durante 90 dias. Si no ves resultados, cancelas sin penalidad.";
+
+  let trustBullets = defaultTrustBullets;
+  if (config?.trustBullets) {
+    try {
+      trustBullets = JSON.parse(config.trustBullets);
+    } catch {
+      // keep defaults
+    }
+  }
+
+  let afterSteps = defaultAfterSteps;
+  if (config?.afterSteps) {
+    try {
+      afterSteps = JSON.parse(config.afterSteps);
+    } catch {
+      // keep defaults
+    }
+  }
+
   return (
     <>
       <BreadcrumbSchema
@@ -88,22 +112,26 @@ export default function PilotoPage() {
                 className="mb-6 text-4xl font-extrabold leading-tight md:text-5xl"
                 style={{ color: "#0A2540" }}
               >
-                3 meses de PAYWL.{" "}
-                <span style={{ color: "#00B4D8" }}>Gratis.</span>{" "}
-                <span className="block">Sin letra pequena.</span>
+                {headline.includes("Gratis") ? (
+                  <>
+                    {headline.split("Gratis")[0]}
+                    <span style={{ color: "#00B4D8" }}>Gratis.</span>{" "}
+                    <span className="block">{headline.split("Gratis.")[1]?.trim() || "Sin letra pequena."}</span>
+                  </>
+                ) : (
+                  headline
+                )}
               </h1>
               <p
                 className="mb-10 max-w-lg text-lg leading-relaxed"
                 style={{ color: "#4A5568" }}
               >
-                Implementamos el motor de paywall completo en tu medio digital sin costo
-                de setup ni mensualidad durante 90 dias. Si no ves resultados, cancelas
-                sin penalidad.
+                {subheadline}
               </p>
 
               {/* Trust bullets */}
               <ul className="space-y-4">
-                {trustBullets.map((bullet) => (
+                {trustBullets.map((bullet: { text: string; sub: string }) => (
                   <li key={bullet.text} className="flex items-start gap-3">
                     <span
                       className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full"
@@ -157,7 +185,7 @@ export default function PilotoPage() {
             Que pasa despues?
           </h2>
           <div className="grid gap-8 sm:grid-cols-2">
-            {afterSteps.map((step) => (
+            {afterSteps.map((step: { number: string; title: string; description: string }) => (
               <div
                 key={step.number}
                 className="rounded-xl border border-gray-100 p-6 transition hover:shadow-md"

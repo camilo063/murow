@@ -192,3 +192,90 @@ model PageMeta {
   description String
   ogImage     String @default("")
 }
+
+model CtaSection {
+  id               String  @id @default(cuid())
+  headline         String
+  subheadline      String
+  ctaPrimaryText   String
+  ctaPrimaryLink   String
+  ctaSecondaryText String
+  ctaSecondaryLink String
+  disclaimerText   String  @default("")
+  isActive         Boolean @default(true)
+}
+
+model NavbarConfig {
+  id               String @id @default(cuid())
+  logoText         String @default("PAYWL")
+  ctaPrimaryText   String @default("Ver Demo")
+  ctaPrimaryLink   String @default("#demo")
+  ctaSecondaryText String @default("Piloto Gratuito")
+  ctaSecondaryLink String @default("/piloto")
+}
+
+model NavbarLink {
+  id        String  @id @default(cuid())
+  label     String
+  href      String
+  sortOrder Int     @default(0)
+  isActive  Boolean @default(true)
+}
+
+model FooterConfig {
+  id        String @id @default(cuid())
+  logoText  String @default("PAYWL")
+  tagline   String @default("The Paywall Engine for Media")
+  slogan    String @default("Tus datos. Tu medio. Tu control.")
+  copyright String @default("© 2026 PAYWL by Nivelics SAS · Colombia · USA")
+}
+
+model FooterLink {
+  id         String @id @default(cuid())
+  columnName String
+  label      String
+  href       String
+  sortOrder  Int    @default(0)
+}
+
+model SectionContent {
+  id         String @id @default(cuid())
+  sectionKey String @unique
+  title      String
+  subtitle   String @default("")
+}
+
+model ExitStrategyItem {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  sortOrder   Int    @default(0)
+}
+
+model ContactoLead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model ContactoConfig {
+  id          String @id @default(cuid())
+  headline    String @default("Hablemos")
+  subheadline String @default("")
+  email       String @default("contacto@nivelics.com")
+  phone       String @default("")
+  calendlyUrl String @default("")
+  location    String @default("")
+}
+
+model PilotoConfig {
+  id           String @id @default(cuid())
+  headline     String
+  subheadline  String
+  description  String @default("")
+  trustBullets String @default("[]")
+  afterSteps   String @default("[]")
+}

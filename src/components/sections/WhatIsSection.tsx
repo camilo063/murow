@@ -16,6 +16,8 @@ interface Pillar {
 
 interface WhatIsSectionProps {
   pillars: Pillar[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -130,7 +132,7 @@ function ArchBlock({
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
-export default function WhatIsSection({ pillars }: WhatIsSectionProps) {
+export default function WhatIsSection({ pillars, sectionTitle, sectionSubtitle }: WhatIsSectionProps) {
   return (
     <section id="que-es-paywl" className="py-20 md:py-28" style={{ background: "#F0F7FF" }}>
       <div className="mx-auto max-w-7xl px-6">
@@ -146,12 +148,10 @@ export default function WhatIsSection({ pillars }: WhatIsSectionProps) {
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            PAYWL: el motor que vive fuera de tu CMS y trabaja para tu audiencia
+            {sectionTitle || "PAYWL: el motor que vive fuera de tu CMS y trabaja para tu audiencia"}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
-            Una arquitectura desacoplada que se integra con cualquier CMS o
-            sitio web mediante API REST, sin modificar tu infraestructura
-            existente.
+            {sectionSubtitle || "Una arquitectura desacoplada que se integra con cualquier CMS o sitio web mediante API REST, sin modificar tu infraestructura existente."}
           </p>
         </motion.div>
 

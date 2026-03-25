@@ -11,7 +11,8 @@ export async function GET() {
 
   const [
     blogPosts,
-    leads,
+    pilotoLeads,
+    contactoLeads,
     faqItems,
     caseStudies,
     integrations,
@@ -27,9 +28,14 @@ export async function GET() {
     trustLogos,
     pageMeta,
     siteConfig,
+    navbarLinks,
+    footerLinks,
+    sectionContent,
+    exitStrategyItems,
   ] = await Promise.all([
     prisma.blogPost.count(),
     prisma.pilotoLead.count(),
+    prisma.contactoLead.count(),
     prisma.faqItem.count(),
     prisma.caseStudy.count(),
     prisma.integration.count(),
@@ -45,11 +51,16 @@ export async function GET() {
     prisma.trustLogo.count(),
     prisma.pageMeta.count(),
     prisma.siteConfig.count(),
+    prisma.navbarLink.count(),
+    prisma.footerLink.count(),
+    prisma.sectionContent.count(),
+    prisma.exitStrategyItem.count(),
   ]);
 
   return NextResponse.json({
     blogPosts,
-    leads,
+    leads: pilotoLeads,
+    contactoLeads,
     faqItems,
     caseStudies,
     integrations,
@@ -65,5 +76,9 @@ export async function GET() {
     trustLogos,
     pageMeta,
     siteConfig,
+    navbarLinks,
+    footerLinks,
+    sectionContent,
+    exitStrategyItems,
   });
 }

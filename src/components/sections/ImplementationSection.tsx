@@ -16,6 +16,8 @@ interface Step {
 
 interface ImplementationSectionProps {
   steps: Step[];
+  sectionTitle?: string;
+  sectionSubtitle?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -78,6 +80,8 @@ function TimelineLine({ vertical }: { vertical?: boolean }) {
 /* ------------------------------------------------------------------ */
 export default function ImplementationSection({
   steps,
+  sectionTitle,
+  sectionSubtitle,
 }: ImplementationSectionProps) {
   return (
     <section
@@ -98,11 +102,10 @@ export default function ImplementationSection({
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            En menos de 2 meses est&aacute;s operando. Sin tocar tu CMS.
+            {sectionTitle || "En menos de 2 meses estás operando. Sin tocar tu CMS."}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
-            Nivelics se encarga de la implementaci&oacute;n completa. Tu equipo
-            solo necesita responder unas preguntas y aprobar.
+            {sectionSubtitle || "Nivelics se encarga de la implementación completa. Tu equipo solo necesita responder unas preguntas y aprobar."}
           </p>
         </motion.div>
 

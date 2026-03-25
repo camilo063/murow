@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FieldDef } from "./section-config";
 
 interface FormModalProps {
@@ -10,6 +10,115 @@ interface FormModalProps {
   onSubmit: (data: Record<string, unknown>) => Promise<void>;
   onClose: () => void;
   title: string;
+}
+
+function ImageUpload({
+  name,
+  value,
+  onChange,
+  label,
+}: {
+  name: string;
+  value: string;
+  onChange: (url: string) => void;
+  label: string;
+}) {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    setError("");
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const json = await res.json();
+        throw new Error(json.error || "Upload failed");
+      }
+
+      const { url } = await res.json();
+      onChange(url);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div className="space-y-2">
+      {/* Preview */}
+      {value && (
+        <div className="relative inline-block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={value}
+            alt={label}
+            className="h-24 w-auto rounded-lg border border-gray-200 object-cover"
+          />
+          <button
+            type="button"
+            onClick={() => onChange("")}
+            className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center hover:bg-red-600"
+          >
+            ×
+          </button>
+        </div>
+      )}
+
+      {/* Upload button */}
+      <div className="flex items-center gap-3">
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/svg+xml,image/gif"
+          onChange={handleUpload}
+          className="hidden"
+          name={name}
+        />
+        <button
+          type="button"
+          onClick={() => inputRef.current?.click()}
+          disabled={uploading}
+          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors disabled:opacity-50 flex items-center gap-2"
+        >
+          {uploading ? (
+            <>
+              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              Subiendo...
+            </>
+          ) : (
+            <>
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {value ? "Cambiar imagen" : "Subir imagen"}
+            </>
+          )}
+        </button>
+        {value && (
+          <span className="text-xs text-gray-400 truncate max-w-[200px]">{value}</span>
+        )}
+      </div>
+
+      {error && <p className="text-xs text-red-500">{error}</p>}
+    </div>
+  );
 }
 
 export default function FormModal({
@@ -27,24 +136,32 @@ export default function FormModal({
     reset,
   } = useForm();
 
+  // Track image field values separately
+  const [imageValues, setImageValues] = useState<Record<string, string>>({});
+
   useEffect(() => {
     if (initialData) {
+      const imgVals: Record<string, string> = {};
       fields.forEach((field) => {
         let val = initialData[field.name];
         if (field.type === "json" && val != null && typeof val !== "string") {
           val = JSON.stringify(val, null, 2);
         }
+        if (field.type === "image") {
+          imgVals[field.name] = (val as string) || "";
+        }
         if (val != null) {
           setValue(field.name, val);
         }
       });
+      setImageValues(imgVals);
     } else {
       reset();
+      setImageValues({});
     }
   }, [initialData, fields, setValue, reset]);
 
   const processSubmit = async (formData: Record<string, unknown>) => {
-    // Convert types
     const processed: Record<string, unknown> = {};
     fields.forEach((field) => {
       let val = formData[field.name];
@@ -54,9 +171,8 @@ export default function FormModal({
       if (field.type === "boolean") {
         val = val === true || val === "true" || val === "on";
       }
-      if (field.type === "json" && typeof val === "string") {
-        // Keep as string - the API will handle it
-        val = val;
+      if (field.type === "image") {
+        val = imageValues[field.name] || "";
       }
       processed[field.name] = val ?? "";
     });
@@ -128,6 +244,19 @@ export default function FormModal({
               </option>
             ))}
           </select>
+        );
+
+      case "image":
+        return (
+          <ImageUpload
+            name={field.name}
+            value={imageValues[field.name] || ""}
+            onChange={(url) => {
+              setImageValues((prev) => ({ ...prev, [field.name]: url }));
+              setValue(field.name, url);
+            }}
+            label={field.label}
+          />
         );
 
       default:

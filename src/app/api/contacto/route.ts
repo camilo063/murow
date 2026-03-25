@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
   try {
@@ -23,9 +24,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Integrate with email service (SendGrid, Resend, etc.)
-    // For now, log the contact and return success
-    console.log("Contact form submission:", { name, email, company, message });
+    // Save to database
+    await prisma.contactoLead.create({
+      data: { name, email, company, message },
+    });
 
     return NextResponse.json(
       { success: true, message: "Mensaje recibido correctamente." },
