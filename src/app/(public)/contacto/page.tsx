@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import ContactoForm from "@/components/forms/ContactoForm";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Contacto — PAYWL by Nivelics SAS",
   description:

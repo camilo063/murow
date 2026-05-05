@@ -3,6 +3,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Integraciones — PAYWL Paywall",
   description:

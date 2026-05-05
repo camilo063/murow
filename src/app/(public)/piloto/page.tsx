@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 import PilotoForm from "@/components/forms/PilotoForm";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Piloto Gratuito 3 Meses — PAYWL Paywall",
   description:
