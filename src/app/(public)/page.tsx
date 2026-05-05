@@ -1,5 +1,8 @@
 import { prisma } from "@/lib/prisma"
 import HeroSection from "@/components/sections/HeroSection"
+
+export const dynamic = "force-dynamic"
+
 import PainSection from "@/components/sections/PainSection"
 import WhatIsSection from "@/components/sections/WhatIsSection"
 import RulesSection from "@/components/sections/RulesSection"

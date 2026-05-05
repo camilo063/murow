@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
+export const dynamic = "force-dynamic";
+
 interface BlogPostPageProps {
   params: { slug: string };
 }

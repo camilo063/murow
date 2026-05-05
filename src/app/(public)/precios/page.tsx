@@ -6,6 +6,8 @@ import ComparisonSection from "@/components/sections/ComparisonSection";
 import ROICalculator from "@/components/forms/ROICalculator";
 import { BreadcrumbSchema } from "@/components/seo/StructuredData";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Precios — PAYWL Paywall para Medios Digitales",
   description:
