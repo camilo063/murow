@@ -218,8 +218,8 @@ export default function PricingSection({ plans, sectionTitle, sectionSubtitle, p
             background: "linear-gradient(135deg, #0A2540 0%, #0077A8 100%)",
           }}
         >
-          <h3 className="mb-4 text-2xl font-bold">
-            {pilotTitle ?? "Programa Piloto de 90 d\u00edas"}
+          <h3 className="mb-4 text-2xl font-bold text-white">
+            {pilotTitle ?? "Programa Piloto de 30 días"}
           </h3>
           <ul className="mb-6 space-y-2">
             {(pilotBullets ?? [

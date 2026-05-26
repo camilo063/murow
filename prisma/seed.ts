@@ -42,7 +42,7 @@ async function main() {
       ctaPrimaryLink: '/piloto',
       ctaSecondaryText: 'Ver como funciona',
       ctaSecondaryLink: '#que-es-paywl',
-      badgeText: 'Piloto de 3 meses SIN COSTO para medios elegibles',
+      badgeText: 'Piloto de 30 días SIN COSTO para medios elegibles',
       isActive: true,
     },
   });
@@ -1016,19 +1016,19 @@ async function main() {
   // ─── PilotoConfig ───────────────────────────────────────────
   const pilotoConfig = await prisma.pilotoConfig.create({
     data: {
-      headline: '3 meses de PAYWL. Gratis. Sin letra pequena.',
-      subheadline: 'Implementamos el motor de paywall completo en tu medio digital sin costo de setup ni mensualidad durante 90 dias. Si no ves resultados, cancelas sin penalidad.',
+      headline: '30 días de PAYWL. Gratis. Sin letra pequeña.',
+      subheadline: 'Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días sin costo. Si no ves resultados, cancelas sin penalidad.',
       description: '',
       trustBullets: JSON.stringify([
         { text: '$0 implementacion', sub: 'Nosotros hacemos todo el setup' },
-        { text: '3 meses de uso activo', sub: 'Sin compromiso despues del piloto' },
+        { text: '30 días de uso activo', sub: 'Sin compromiso despues del piloto' },
         { text: 'Tu data es tuya', sub: 'Soberania total de datos desde el dia 1' },
       ]),
       afterSteps: JSON.stringify([
         { number: '1', title: 'Llamada de descubrimiento', description: 'Un especialista te contacta en 24h para entender tu medio, tu stack y tus objetivos.' },
         { number: '2', title: 'Configuracion del entorno', description: 'En 48h creamos tu instancia, configuramos integraciones y preparamos las reglas iniciales.' },
         { number: '3', title: 'Go-live en 2 semanas', description: 'Implementamos el paywall en tu sitio con soporte hands-on de nuestro equipo.' },
-        { number: '4', title: '90 dias de piloto', description: 'Soporte dedicado, optimizacion de reglas y reportes de performance. Sin costo.' },
+        { number: '4', title: '30 dias de piloto', description: 'Soporte dedicado, optimizacion de reglas y reportes de performance. Sin costo.' },
       ]),
     },
   });
