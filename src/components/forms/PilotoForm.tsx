@@ -122,7 +122,7 @@ export default function PilotoForm() {
             </li>
             <li className="flex gap-2">
               <span className="font-bold" style={{ color: "#00B4D8" }}>4.</span>
-              Arrancamos el piloto de 90 dias
+              Arrancamos el piloto de 30 días
             </li>
           </ol>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -36,12 +37,25 @@ export default function Navbar({
   links,
 }: NavbarProps) {
   const navLinks = links && links.length > 0 ? links : defaultNavLinks;
+  const pathname = usePathname();
+  const hasLightBackground = pathname !== "/" && !pathname.startsWith("/docs");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  const isLight = hasLightBackground || scrolled;
 
   useEffect(() => {
+    let lastY = window.scrollY;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      const currentY = window.scrollY;
+      setScrolled(currentY > 80);
+      if (currentY > lastY && currentY > 80) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      lastY = currentY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -63,10 +77,8 @@ export default function Navbar({
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-navbar"
-          : "bg-transparent"
-      }`}
+        scrolled ? "bg-white shadow-navbar" : "bg-transparent"
+      } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
@@ -74,7 +86,7 @@ export default function Navbar({
           <Link
             href="/"
             className={`font-sans text-xl font-extrabold tracking-tight transition-colors duration-300 ${
-              scrolled ? "text-[#0A2540]" : "text-white"
+              isLight ? "text-[#0A2540]" : "text-white"
             }`}
           >
             {logoText}
@@ -88,7 +100,7 @@ export default function Navbar({
                   key={link.label}
                   href={link.href}
                   className={`text-sm font-medium transition-colors duration-300 ${
-                    scrolled
+                    isLight
                       ? "text-[#4A5568] hover:text-[#0A2540]"
                       : "text-white/85 hover:text-white"
                   }`}
@@ -100,7 +112,7 @@ export default function Navbar({
                   key={link.label}
                   href={link.href}
                   className={`text-sm font-medium transition-colors duration-300 ${
-                    scrolled
+                    isLight
                       ? "text-[#4A5568] hover:text-[#0A2540]"
                       : "text-white/85 hover:text-white"
                   }`}
@@ -116,7 +128,7 @@ export default function Navbar({
             <Link
               href={ctaPrimaryLink}
               className={`rounded-btn px-4 py-1.5 text-sm font-semibold border transition-all duration-300 ${
-                scrolled
+                isLight
                   ? "border-[#0A2540] text-[#0A2540] hover:bg-[#0A2540] hover:text-white"
                   : "border-white/60 text-white hover:border-white hover:bg-white/10"
               }`}
@@ -135,7 +147,7 @@ export default function Navbar({
           <button
             type="button"
             className={`md:hidden p-2 transition-colors duration-300 ${
-              scrolled ? "text-[#0A2540]" : "text-white"
+              isLight ? "text-[#0A2540]" : "text-white"
             }`}
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}

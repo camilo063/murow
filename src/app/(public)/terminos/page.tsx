@@ -106,7 +106,7 @@ export default function TerminosPage() {
                 5. Programa piloto gratuito
               </h2>
               <p className={paraClass}>
-                Nivelics ofrece un programa piloto de 90 dias sin costo. Al finalizar
+                Nivelics ofrece un programa piloto de 30 días sin costo. Al finalizar
                 el periodo piloto, el cliente puede optar por contratar un plan de pago
                 o cancelar sin penalidad. Los datos generados durante el piloto seran
                 entregados al cliente en formato estandar.

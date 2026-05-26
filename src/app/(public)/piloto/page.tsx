@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Piloto Gratuito 3 Meses — PAYWL Paywall",
   description:
-    "Implementa el motor de paywall PAYWL en tu medio digital gratis durante 3 meses. Sin costo de implementacion, sin clausulas ocultas. Tu data es tuya.",
+    "Implementa el motor de paywall PAYWL en tu medio digital gratis durante 30 dias. Sin costo de implementacion, sin clausulas ocultas. Tu data es tuya.",
   openGraph: {
     title: "Piloto Gratuito 3 Meses — PAYWL Paywall",
     description:
@@ -45,7 +45,7 @@ const defaultAfterSteps = [
   },
   {
     number: "4",
-    title: "90 dias de piloto",
+    title: "30 días de piloto",
     description:
       "Soporte dedicado, optimizacion de reglas y reportes de performance. Sin costo.",
   },
@@ -55,7 +55,7 @@ export default async function PilotoPage() {
   const config = await prisma.pilotoConfig.findFirst();
 
   const headline = config?.headline || "3 meses de PAYWL. Gratis. Sin letra pequena.";
-  const subheadline = config?.subheadline || "Implementamos el motor de paywall completo en tu medio digital sin costo de setup ni mensualidad durante 90 dias. Si no ves resultados, cancelas sin penalidad.";
+  const subheadline = config?.subheadline || "Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días son gratis. Si no ves resultados, cancelas sin penalidad.";
 
   let trustBullets = defaultTrustBullets;
   if (config?.trustBullets) {

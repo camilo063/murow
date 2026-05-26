@@ -219,7 +219,7 @@ export default function PricingSection({ plans, sectionTitle, sectionSubtitle, p
           }}
         >
           <h3 className="mb-4 text-2xl font-bold text-white">
-            {pilotTitle ?? "Programa Piloto de 30 d\u00edas"}
+            {pilotTitle ?? "Programa Piloto de 30 días"}
           </h3>
           <ul className="mb-6 space-y-2">
             {(pilotBullets ?? [

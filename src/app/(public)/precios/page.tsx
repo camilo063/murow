@@ -119,7 +119,7 @@ export default async function PreciosPage() {
             Listo para monetizar tu contenido?
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-gray-300">
-            Comienza con un piloto gratuito de 90 dias. Sin riesgo, sin letra pequena.
+            Comienza con un piloto gratuito de 30 dias. Sin riesgo, sin letra pequena.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
