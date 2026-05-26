@@ -1017,7 +1017,7 @@ async function main() {
   const pilotoConfig = await prisma.pilotoConfig.create({
     data: {
       headline: '30 días de PAYWL. Gratis. Sin letra pequeña.',
-      subheadline: 'Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días son gratis. Si no ves resultados, cancelas sin penalidad.',
+      subheadline: 'Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días sin costo. Si no ves resultados, cancelas sin penalidad.',
       description: '',
       trustBullets: JSON.stringify([
         { text: '$0 implementacion', sub: 'Nosotros hacemos todo el setup' },

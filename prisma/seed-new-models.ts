@@ -182,7 +182,7 @@ async function main() {
           { number: '1', title: 'Llamada de descubrimiento', description: 'Un especialista te contacta en 24h para entender tu medio, tu stack y tus objetivos.' },
           { number: '2', title: 'Configuracion del entorno', description: 'En 48h creamos tu instancia, configuramos integraciones y preparamos las reglas iniciales.' },
           { number: '3', title: 'Go-live en 2 semanas', description: 'Implementamos el paywall en tu sitio con soporte hands-on de nuestro equipo.' },
-          { number: '4', title: '30 dias de piloto', description: 'Soporte dedicado, optimizacion de reglas y reportes de performance. Sin costo.' },
+          { number: '4', title: '30 dias de piloto', description: 'Los primeros 30 días sin costo' },
         ]),
       },
     });

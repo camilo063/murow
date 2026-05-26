@@ -55,7 +55,7 @@ export default async function PilotoPage() {
   const config = await prisma.pilotoConfig.findFirst();
 
   const headline = config?.headline || "3 meses de PAYWL. Gratis. Sin letra pequena.";
-  const subheadline = config?.subheadline || "Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días son gratis. Si no ves resultados, cancelas sin penalidad.";
+  const subheadline = config?.subheadline || "Implementamos el motor de paywall completo en tu medio digital sin costo de setup. Los primeros 30 días sin costo. Si no ves resultados, cancelas sin penalidad.";
 
   let trustBullets = defaultTrustBullets;
   if (config?.trustBullets) {
