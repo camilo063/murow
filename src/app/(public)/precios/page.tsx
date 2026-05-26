@@ -115,7 +115,7 @@ export default async function PreciosPage() {
         }}
       >
         <div className="mx-auto max-w-3xl px-6 text-center text-white">
-          <h2 className="mb-4 text-3xl font-extrabold md:text-4xl">
+          <h2 className="mb-4 text-3xl font-extrabold md:text-4xl text-white">
             Listo para monetizar tu contenido?
           </h2>
           <p className="mx-auto mb-8 max-w-xl text-lg text-gray-300">
