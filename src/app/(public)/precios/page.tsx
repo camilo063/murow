@@ -21,11 +21,16 @@ export const metadata: Metadata = {
 };
 
 export default async function PreciosPage() {
-  const [plans, competitors] = await Promise.all([
+  const [plans, competitors, sectionContents] = await Promise.all([
     prisma.pricingPlan.findMany({ orderBy: { sortOrder: "asc" } }),
     prisma.competitor.findMany({ orderBy: { sortOrder: "asc" } }),
+    prisma.sectionContent.findMany(),
   ]);
 
+  const headers: Record<string, { title: string; subtitle: string }> = {}
+  for (const sc of sectionContents) {
+    headers[sc.sectionKey] = { title: sc.title, subtitle: sc.subtitle }
+  }
   return (
     <>
       <BreadcrumbSchema
@@ -94,6 +99,8 @@ export default async function PreciosPage() {
       {/* Comparison Table */}
       {competitors.length > 0 && (
         <ComparisonSection
+          sectionTitle={headers["comparison"]?.title}
+          sectionSubtitle={headers["comparison"]?.subtitle}
           competitors={competitors.map((c) => ({
             name: c.name,
             setup: c.setup,

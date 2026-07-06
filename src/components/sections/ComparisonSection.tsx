@@ -79,7 +79,7 @@ export default function ComparisonSection({
             className="mb-4 text-3xl font-extrabold leading-tight md:text-4xl"
             style={{ color: "#0A2540" }}
           >
-            {sectionTitle || "¿Por qué PAYWL y no Piano, Pelcro o Evolok?"}
+            {sectionTitle || "¿Por qué PAYWL y no otros 132dddd?"}
           </h2>
           <p className="text-lg" style={{ color: "#4A5568" }}>
             {sectionSubtitle || "Hicimos la investigación por ti."}
