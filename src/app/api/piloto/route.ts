@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendLeadNotification } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -55,6 +56,25 @@ export async function POST(request: Request) {
         hasSubscription,
         challenge: challenge || "",
       },
+    });
+
+    // Notificar al equipo comercial. No bloquea la respuesta si el correo falla:
+    // el lead ya quedo guardado en la BD.
+    await sendLeadNotification({
+      leadType: "Piloto Gratuito",
+      subject: `Nuevo lead de piloto: ${mediaName}`,
+      contact: { name: fullName, email, company: mediaName },
+      fields: [
+        { label: "Nombre", value: fullName },
+        { label: "Medio", value: mediaName },
+        { label: "Cargo", value: position },
+        { label: "Email", value: email },
+        { label: "Pais", value: country },
+        { label: "Pageviews/mes", value: pageViews },
+        { label: "CMS actual", value: currentCms },
+        { label: "Tiene suscripcion", value: hasSubscription },
+        { label: "Reto principal", value: challenge || "" },
+      ],
     });
 
     return NextResponse.json(

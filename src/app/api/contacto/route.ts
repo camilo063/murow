@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendLeadNotification } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -27,6 +28,20 @@ export async function POST(request: Request) {
     // Save to database
     await prisma.contactoLead.create({
       data: { name, email, company, message },
+    });
+
+    // Notificar al equipo comercial. No bloquea la respuesta si el correo falla:
+    // el lead ya quedo guardado en la BD.
+    await sendLeadNotification({
+      leadType: "Contacto",
+      subject: `Nuevo mensaje de contacto: ${company}`,
+      contact: { name, email, company },
+      fields: [
+        { label: "Nombre", value: name },
+        { label: "Email", value: email },
+        { label: "Empresa", value: company },
+        { label: "Mensaje", value: message },
+      ],
     });
 
     return NextResponse.json(
