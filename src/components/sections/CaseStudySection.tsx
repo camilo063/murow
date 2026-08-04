@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, ArrowUpRight } from "lucide-react";
+import { Quote } from "lucide-react";
 
 interface CaseStudy {
   clientName: string;
@@ -87,8 +87,11 @@ export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivel
           </div>
         </motion.div>
 
-        {/* Metrics grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
+        {/* 
+          Metrics grid 
+          Sección ya integrada, se comenenta mientras se confirma qué información iria aquí  
+        */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
           {parsedMetrics.slice(0, 4).map((metric, i) => (
             <motion.div
               key={i}
@@ -107,7 +110,7 @@ export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivel
               <p className="text-sm text-[#4A5568]">{metric.label}</p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* Testimonial */}
         <motion.div
