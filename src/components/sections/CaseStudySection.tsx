@@ -27,6 +27,10 @@ const fadeUp = {
 };
 
 export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivelicsTitle, nivelicsSubtitle }: CaseStudySectionProps) {
+  /*
+    Se comenta junto con el grid de metricas (mas abajo) mientras se confirma
+    que informacion iria alli. Descomentar ambos bloques a la vez.
+
   let parsedMetrics: { label: string; value: string }[] = [];
   try {
     parsedMetrics = JSON.parse(caseStudy.metrics);
@@ -36,6 +40,7 @@ export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivel
       .split(",")
       .map((m) => ({ label: m.trim(), value: "X" }));
   }
+  */
 
   return (
     <section id="casos-de-exito" className="bg-white py-20 md:py-28">
