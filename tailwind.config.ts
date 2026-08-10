@@ -18,7 +18,7 @@ const config: Config = {
         "dark-cyan": "#0077A8",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "Arial", "sans-serif"],
+        sans: ["var(--font-plus-jakarta-sans)", "system-ui", "Arial", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       borderRadius: {
@@ -72,6 +72,7 @@ const config: Config = {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 };
 export default config;

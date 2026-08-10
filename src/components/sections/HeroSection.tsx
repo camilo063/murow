@@ -213,7 +213,7 @@ export default function HeroSection({
             <motion.h1
               {...fade(0.1)}
               className="mb-6 text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-inter, Inter, sans-serif)" }}
+              style={{ fontFamily: "var(--font-plus-jakarta-sans, 'Plus Jakarta Sans', sans-serif)" }}
             >
               {headline}
             </motion.h1>
