@@ -70,16 +70,14 @@ export default function Footer({
   }
 
   return (
-    <footer className="bg-deep-navy text-white">
+    <footer className="bg-[#262626] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
           <div className="space-y-4">
-            <Link
-              href="/"
-              className="block font-sans text-2xl font-extrabold text-white tracking-tight"
-            >
-              {logoText}
+            <Link href="/" className="block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo/logo-paywl-dark.svg" alt={logoText} className="h-8 w-auto" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               {tagline}

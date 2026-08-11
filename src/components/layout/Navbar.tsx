@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -83,13 +84,12 @@ export default function Navbar({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            className={`font-sans text-xl font-extrabold tracking-tight transition-colors duration-300 ${
-              isLight ? "text-[#0A2540]" : "text-white"
-            }`}
-          >
-            {logoText}
+          <Link href="/" className="flex items-center">
+            <img
+              src={isLight ? "/logo/logo-paywl-light.svg" : "/logo/logo-paywl-dark.svg"}
+              alt={logoText}
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Center links — desktop */}
