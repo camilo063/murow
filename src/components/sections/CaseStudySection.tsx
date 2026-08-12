@@ -158,7 +158,7 @@ export default function CaseStudySection({ caseStudy, logos, sectionTitle, nivel
             {nivelicsTitle ?? <>Detras de PAYWL esta{" "}<span className="text-[#00B4D8]">Nivelics</span></>}
           </p>
           <p className="text-sm text-[#4A5568] mb-8 max-w-xl mx-auto">
-            {nivelicsSubtitle ?? "14 anos construyendo producto digital para medios de comunicacion en Latinoamerica."}
+            {nivelicsSubtitle ?? "14 años construyendo producto digital para medios de comunicacion en Latinoamerica."}
           </p>
 
           {/* Logo strip */}
