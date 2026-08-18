@@ -125,7 +125,7 @@ export default function Navbar({
 
           {/* CTA buttons — desktop */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
+            {/* <Link
               href={ctaPrimaryLink}
               className={`rounded-btn px-4 py-1.5 text-sm font-semibold border transition-all duration-300 ${
                 isLight
@@ -134,7 +134,7 @@ export default function Navbar({
               }`}
             >
               {ctaPrimaryText}
-            </Link>
+            </Link> */}
             <Link
               href={ctaSecondaryLink}
               className="rounded-btn bg-[#FF6B35] px-4 py-1.5 text-sm font-semibold text-white hover:brightness-110 transition-all"
